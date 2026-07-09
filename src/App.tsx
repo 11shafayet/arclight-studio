@@ -14,7 +14,7 @@ function App() {
         <section className="relative min-h-screen px-5 pb-20 pt-32 sm:px-8 lg:px-12 lg:pt-40">
           <div className="site-glow site-glow-lime" />
           <div className="site-glow site-glow-cyan" />
-          <div className="mx-auto max-w-[1480px]">
+          <div className="mx-auto max-w-[1440px]">
             <div className="mb-9 grid gap-4 border-b border-ink/10 pb-4 font-mono text-[11px] font-bold uppercase md:grid-cols-3">
               <span>Webflow, Framer specialists for approved design</span>
               <span className="text-center">Powerful web development</span>
@@ -64,7 +64,7 @@ function App() {
         </section>
 
         <section id="projects" className="px-5 py-20 sm:px-8 lg:px-12">
-          <div className="mx-auto max-w-[1480px]">
+          <div className="mx-auto max-w-[1440px]">
             <SectionKicker index="02" label="Selected Development" meta="Work" />
             <div className="mt-14 grid gap-10 lg:grid-cols-[.7fr_1.3fr]">
               <div className="lg:sticky lg:top-24 lg:self-start">
@@ -83,7 +83,7 @@ function App() {
         </section>
 
         <section className="px-5 py-28 sm:px-8 lg:px-12">
-          <div className="mx-auto max-w-[1480px]">
+          <div className="mx-auto max-w-[1440px]">
             <SectionKicker index="03" label="Approach" meta="Why it works" />
             <div className="mt-14 grid gap-9 lg:grid-cols-[.8fr_1.2fr]">
               <h2 className="font-display text-[clamp(2.7rem,6.2vw,6.8rem)] font-black uppercase leading-[0.86] text-ink/55">
@@ -107,7 +107,7 @@ function App() {
         </section>
 
         <section className="bg-ink/5 px-5 py-24 sm:px-8 lg:px-12">
-          <div className="mx-auto max-w-[1480px]">
+          <div className="mx-auto max-w-[1440px]">
             <SectionKicker index="04" label="Start" meta="One page" />
             <div className="mx-auto mt-16 max-w-4xl bg-white p-8 text-center shadow-soft sm:p-14">
               <p className="font-mono text-xs font-bold uppercase text-ink/45">Minimum project</p>
@@ -126,7 +126,7 @@ function App() {
         </section>
 
         <section className="px-5 py-24 sm:px-8 lg:px-12">
-          <div className="mx-auto max-w-[1480px]">
+          <div className="mx-auto max-w-[1440px]">
             <SectionKicker index="05" label="Our Process" meta="How we work" />
             <div className="mt-14 grid gap-10 lg:grid-cols-[.65fr_1.35fr]">
               <div>
@@ -150,7 +150,7 @@ function App() {
         </section>
 
         <section className="px-5 py-24 sm:px-8 lg:px-12">
-          <div className="mx-auto max-w-[1480px]">
+          <div className="mx-auto max-w-[1440px]">
             <SectionKicker index="06" label="Experience" meta="Client words" />
             <div className="mt-14 grid gap-5 lg:grid-cols-[.85fr_1.15fr]">
               <div className="grid gap-5 sm:grid-cols-[.75fr_1fr]">
@@ -172,7 +172,7 @@ function App() {
         </section>
 
         <section className="px-5 py-24 sm:px-8 lg:px-12">
-          <div className="mx-auto max-w-[1480px]">
+          <div className="mx-auto max-w-[1440px]">
             <SectionKicker index="07" label="FAQ" meta="Got questions?" />
             <div className="mt-14 grid gap-8 lg:grid-cols-[.85fr_1.15fr]">
               <img src="/images/project-dashboard.svg" alt="" className="max-h-48 w-full rounded-md object-cover lg:max-w-sm" />
@@ -189,7 +189,7 @@ function App() {
         </section>
 
         <section id="contact" className="px-5 py-24 sm:px-8 lg:px-12">
-          <div className="mx-auto max-w-[1480px]">
+          <div className="mx-auto max-w-[1440px]">
             <SectionKicker index="08" label="Contact" meta="Get in touch" />
             <h2 className="mt-14 font-display text-[clamp(4rem,14vw,14rem)] font-black uppercase leading-[0.82]">
               Contact Us.

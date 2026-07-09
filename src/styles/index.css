@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -43,6 +45,17 @@ body::before {
   img,
   svg {
     display: block;
+  }
+}
+
+@layer components {
+  .brand-logo {
+    font-family: 'Bebas Neue', 'Bebas Neue Placeholder', sans-serif;
+    font-size: 32px;
+    font-weight: 400;
+    line-height: 38.4px;
+    color: rgb(23, 23, 23);
+    letter-spacing: 0;
   }
 }
 
