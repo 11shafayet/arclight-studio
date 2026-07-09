@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Geist:wght@400;500;700&family=Geist+Mono:wght@500&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -21,8 +21,8 @@ body {
   margin: 0;
   min-width: 320px;
   background:
-    radial-gradient(circle at 92% 4%, rgba(177, 246, 68, 0.6), transparent 18rem),
-    radial-gradient(circle at 2% 48%, rgba(169, 222, 231, 0.5), transparent 20rem),
+    radial-gradient(circle at 92% 4%, rgba(157, 234, 39, 0.18), transparent 24rem),
+    radial-gradient(circle at 5% 56%, rgba(89, 187, 213, 0.22), transparent 24rem),
     #f2f2ee;
 }
 
@@ -85,18 +85,32 @@ body::before {
   }
 
   .site-glow-lime {
-    right: -6rem;
-    top: -8rem;
-    width: 28rem;
-    height: 28rem;
-    background: #b9ff47;
+    right: -1rem;
+    top: -10rem;
+    width: 34rem;
+    height: 34rem;
+    background: rgba(157, 234, 39, 0.28);
   }
 
   .site-glow-cyan {
     left: -12rem;
-    bottom: 4rem;
-    width: 28rem;
-    height: 28rem;
-    background: #b8e3e8;
+    top: 28rem;
+    width: 34rem;
+    height: 34rem;
+    background: rgba(89, 187, 213, 0.22);
+  }
+
+  .hero-ruler {
+    position: absolute;
+    inset: -140px 0 auto;
+    height: 150px;
+    pointer-events: none;
+    opacity: 0.2;
+    background-image: repeating-linear-gradient(
+      90deg,
+      rgba(23, 23, 23, 0.22) 0 1px,
+      transparent 1px 13px
+    );
+    mask-image: linear-gradient(to bottom, #000 0%, transparent 100%);
   }
 }

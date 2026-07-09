@@ -6,9 +6,9 @@ import { navItems } from '../data/site';
 const letterVariants = {
   rest: { y: 0 },
   hover: (index: number) => ({
-    y: -4,
+    y: -20,
     transition: {
-      duration: 0.28,
+      duration: 0.36,
       delay: index * 0.025,
       ease: [0.22, 1, 0.36, 1],
     },
@@ -48,17 +48,17 @@ export function Header() {
 
   return (
     <header className="relative z-50">
-      <div className="mx-auto flex h-24 w-full max-w-[1440px] items-center justify-between px-5 sm:px-8 lg:px-12">
+      <div className="mx-auto flex h-[138px] w-full max-w-[1440px] items-start justify-between px-6 pt-12 sm:px-8">
         <a href="#home" className="brand-logo uppercase">
           Arclight
         </a>
 
-        <nav className="hidden items-center gap-10 text-[13px] font-bold text-ink/80 md:flex">
+        <nav className="absolute left-1/2 top-[54px] hidden -translate-x-[227px] items-start gap-10 text-base font-medium text-ink md:flex">
           {navItems.map((item) => (
             <motion.a
               key={item.label}
               href={item.href}
-              className="group flex origin-center items-start gap-1 hover:text-ink"
+              className="group flex origin-center items-start gap-2 text-ink"
               initial="rest"
               whileHover="hover"
               animate="rest"
@@ -70,26 +70,28 @@ export function Header() {
                 },
               }}
             >
-              <span className="flex overflow-hidden leading-none">
+              <span className="flex h-5 overflow-hidden leading-5">
                 {item.label.split('').map((letter, index) => (
                   <motion.span
                     key={`${item.label}-${letter}-${index}`}
                     custom={index}
                     variants={letterVariants}
-                    className="inline-block"
+                    className="inline-block font-geist text-base font-medium leading-5 tracking-normal"
                   >
                     {letter}
                   </motion.span>
                 ))}
               </span>
-              <sup className="text-[9px] text-ink/50 group-hover:text-ink">{item.number}</sup>
+              <sup className="-mt-1 font-geist text-xs font-medium leading-[14.4px] text-[#666] group-hover:text-ink">
+                {item.number}
+              </sup>
             </motion.a>
           ))}
         </nav>
 
         <motion.a
           href="#projects"
-          className="inline-flex h-9 items-center gap-1.5 rounded-full border px-1.5 pr-4 text-[12px] font-bold shadow-soft"
+          className="inline-flex h-[42px] items-center gap-2 rounded-full border px-1.5 pr-6 font-geist text-base font-medium leading-[22.4px] shadow-soft"
           onHoverStart={() => setIsWorkHovered(true)}
           onHoverEnd={() => setIsWorkHovered(false)}
           initial="rest"
@@ -97,7 +99,7 @@ export function Header() {
           whileHover="hover"
           variants={workButtonVariants}
         >
-          <span className="relative size-7 overflow-hidden rounded-full bg-white">
+          <span className="relative size-[34px] overflow-hidden rounded-full bg-white">
             <motion.img
               key={isWorkHovered ? 'hover' : 'rest'}
               src={isWorkHovered ? '/images/person-two.svg' : '/images/person-one.svg'}
@@ -109,12 +111,12 @@ export function Header() {
             />
           </span>
           <motion.span
-            className="grid size-6 place-items-center rounded-full ring-1 ring-ink/5"
+            className="grid size-[30px] place-items-center rounded-full ring-1 ring-ink/5"
             variants={workIconVariants}
           >
-            <ArrowUpRight size={14} strokeWidth={2.4} />
+            <ArrowUpRight size={16} strokeWidth={2.2} />
           </motion.span>
-          View Selected Work
+          [View Selected Work]
         </motion.a>
       </div>
     </header>

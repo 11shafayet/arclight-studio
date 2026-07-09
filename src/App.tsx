@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import { ArrowUpRight, Check, Plus } from 'lucide-react';
 import { ContactForm } from './components/ContactForm';
 import { Footer } from './components/Footer';
@@ -11,57 +12,7 @@ function App() {
     <div id="home" className="min-h-screen overflow-hidden bg-paper text-ink">
       <Header />
       <main>
-        <section className="relative min-h-screen px-5 pb-20 pt-32 sm:px-8 lg:px-12 lg:pt-40">
-          <div className="site-glow site-glow-lime" />
-          <div className="site-glow site-glow-cyan" />
-          <div className="mx-auto max-w-[1440px]">
-            <div className="mb-9 grid gap-4 border-b border-ink/10 pb-4 font-mono text-[11px] font-bold uppercase md:grid-cols-3">
-              <span>Webflow, Framer specialists for approved design</span>
-              <span className="text-center">Powerful web development</span>
-              <span className="text-right">Writing structural code</span>
-            </div>
-
-            <div className="max-w-[1210px]">
-              <h1 className="font-display text-[clamp(3.7rem,10.8vw,11.6rem)] font-black uppercase leading-[0.84] tracking-normal">
-                We build. You take the credit.
-              </h1>
-              <a
-                href="#contact"
-                className="mt-7 inline-flex h-8 items-center gap-1.5 rounded-full border border-ink bg-white px-2 pr-3 text-[11px] font-bold text-ink"
-              >
-                <ArrowUpRight size={14} />
-                Send Us Your Project
-              </a>
-            </div>
-
-            <div className="mt-14 grid gap-10 md:grid-cols-[.85fr_1.15fr]">
-              <p className="max-w-sm text-lg font-bold leading-tight">
-                We build your client site under your brand. You keep the relationship, the credit, and the margin.
-              </p>
-              <div className="grid gap-8 text-xs font-bold text-ink/55 sm:grid-cols-2 lg:grid-cols-4">
-                {['Framer', 'Webflow', 'React', 'WordPress'].map((tool) => (
-                  <span key={tool}>// {tool}</span>
-                ))}
-              </div>
-            </div>
-
-            <div className="mt-28 grid gap-8 border-t border-ink/10 pt-9 md:grid-cols-[.65fr_1.35fr]">
-              <div className="grid grid-cols-2 gap-8 md:block">
-                <Stat number="40+" label="Live Projects" />
-                <Stat number="1+" label="Team Members" className="md:mt-16" />
-              </div>
-              <div className="grid gap-8 md:grid-cols-2">
-                <h2 className="max-w-xl font-display text-[clamp(2.3rem,4.8vw,5.5rem)] font-black uppercase leading-[0.88]">
-                  Approved designs shipped without development drama.
-                </h2>
-                <div className="self-end border-t border-ink/10 pt-6">
-                  <p className="font-display text-3xl font-black uppercase">NDA-friendly</p>
-                  <p className="mt-2 text-sm font-bold text-ink/55">Quiet execution for agencies and solo designers.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+        <HeroSection />
 
         <section id="projects" className="px-5 py-20 sm:px-8 lg:px-12">
           <div className="mx-auto max-w-[1440px]">
@@ -221,6 +172,138 @@ function App() {
       </main>
       <Footer />
     </div>
+  );
+}
+
+const heroReveal = {
+  hidden: { opacity: 1, y: 40 },
+  visible: (delay = 0) => ({
+    opacity: 1,
+    y: 0,
+    transition: { type: 'spring', stiffness: 220, damping: 42, mass: 1, delay },
+  }),
+};
+
+const heroClients = [
+  'zeitgeistandco',
+  'mgexecutivecoach',
+  'clickodigital',
+  'innovazione-futura.ag',
+  'hank-hirth.de',
+];
+
+function HeroSection() {
+  const marqueeItems = [...heroClients, ...heroClients, ...heroClients, ...heroClients];
+
+  return (
+    <section className="relative min-h-[862px] overflow-hidden px-6 pb-14 pt-[60px] sm:px-8">
+      <div className="hero-ruler" />
+      <div className="site-glow site-glow-lime" />
+      <div className="site-glow site-glow-cyan" />
+
+      <div className="relative mx-auto max-w-[1440px]">
+        <motion.div
+          className="grid gap-[10px] font-geist text-lg font-medium leading-[21.6px] text-ink lg:grid-cols-[676px_676px]"
+          variants={heroReveal}
+          initial="hidden"
+          animate="visible"
+          custom={0.3}
+        >
+          <p>WHITE-LABEL WORDPRESS &amp; FRAMER DEVELOPMENT</p>
+          <p>Working Worldwide</p>
+        </motion.div>
+
+        <motion.div
+          className="mt-0"
+          variants={heroReveal}
+          initial="hidden"
+          animate="visible"
+          custom={0.45}
+        >
+          <h1 className="inline-block origin-left scale-x-[0.622] whitespace-nowrap font-geist text-[clamp(5rem,8.94vw,128.7px)] font-bold uppercase leading-[1.088] tracking-normal text-ink">
+            WE BUILD. YOU TAKE THE CREDIT.
+          </h1>
+        </motion.div>
+
+        <div className="mt-[14px] grid grid-cols-[1fr_455px] items-start gap-5">
+          <motion.a
+            href="#contact"
+            className="group inline-flex h-[35px] w-fit items-center rounded-full bg-ink pr-4 font-geist text-base font-medium leading-[35.2px] text-white"
+            variants={heroReveal}
+            initial="hidden"
+            animate="visible"
+            custom={0.6}
+            whileHover={{ scale: 1.04, backgroundColor: '#ffffff', color: '#171717' }}
+            transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
+          >
+            <span className="mr-2 grid size-[35px] place-items-center rounded-full border-2 border-ink bg-white text-ink">
+              <PlusIcon />
+            </span>
+            [ Send a Test Project ]
+          </motion.a>
+
+          <motion.div
+            variants={heroReveal}
+            initial="hidden"
+            animate="visible"
+            custom={0.72}
+          >
+            <p className="inline-block origin-left scale-x-[0.8] whitespace-nowrap font-geist text-[40px] font-bold uppercase leading-[46px] text-ink">
+              FOR BRANDING STUDIOS
+            </p>
+          </motion.div>
+        </div>
+
+        <motion.div
+          className="mt-[79px] grid grid-cols-[minmax(0,993px)_1fr] items-start gap-5"
+          variants={heroReveal}
+          initial="hidden"
+          animate="visible"
+          custom={0.86}
+        >
+          <h5 className="max-w-[993px] font-geist text-[22px] font-medium leading-[26.4px] text-ink">
+            We build your client sites under your brand. You keep the relationship, the credit, and the margin.
+          </h5>
+          <div className="mt-[19px] flex justify-end gap-[13px] font-geist text-xs font-medium leading-[14.4px] text-[#393939]">
+            <span>6+ Years Experience</span>
+            <span>Wordpress</span>
+            <span>Framer</span>
+            <span>NDA Friendly</span>
+          </div>
+        </motion.div>
+
+        <motion.div
+          className="mt-[213px] flex items-center overflow-visible font-geist text-[22px] font-medium leading-[26.4px]"
+          variants={heroReveal}
+          initial="hidden"
+          animate="visible"
+          custom={1}
+        >
+          <h5 className="mr-8 shrink-0 text-ink">/Worked with</h5>
+          <div className="relative min-w-0 flex-1 overflow-hidden">
+            <motion.div
+              className="flex w-max gap-8"
+              animate={{ x: ['0%', '-50%'] }}
+              transition={{ duration: 120, ease: 'linear', repeat: Infinity }}
+            >
+              {marqueeItems.map((client, index) => (
+                <a key={`${client}-${index}`} href="#projects" className="text-[#91918d]">
+                  {client}
+                </a>
+              ))}
+            </motion.div>
+          </div>
+        </motion.div>
+      </div>
+    </section>
+  );
+}
+
+function PlusIcon() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true">
+      <path d="M8 3.5V12.5M3.5 8H12.5" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" />
+    </svg>
   );
 }
 
