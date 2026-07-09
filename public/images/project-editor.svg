@@ -1,0 +1,12 @@
+<svg width="900" height="760" viewBox="0 0 900 760" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="900" height="760" fill="#252e60"/>
+  <rect x="118" y="96" width="664" height="486" rx="22" fill="#f6f8ff"/>
+  <rect x="164" y="148" width="250" height="34" rx="8" fill="#845ef7"/>
+  <rect x="164" y="226" width="226" height="24" rx="7" fill="#c5c9d8"/>
+  <rect x="164" y="276" width="426" height="28" rx="8" fill="#dbe0ef"/>
+  <rect x="164" y="332" width="284" height="28" rx="8" fill="#dbe0ef"/>
+  <rect x="514" y="214" width="198" height="220" rx="16" fill="#b8d7ff"/>
+  <path d="M548 396L638 250L704 396H548Z" fill="#845ef7"/>
+  <circle cx="676" cy="260" r="26" fill="#ffd43b"/>
+  <text x="164" y="660" fill="#ffffff" font-family="Arial, sans-serif" font-size="44" font-weight="800">DUMMY PRODUCT UI</text>
+</svg>

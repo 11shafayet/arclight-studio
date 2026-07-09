@@ -1,0 +1,12 @@
+<svg width="900" height="760" viewBox="0 0 900 760" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="900" height="760" fill="#d6d1c8"/>
+  <path d="M0 520L900 360V760H0V520Z" fill="#1d1d1d"/>
+  <rect x="160" y="112" width="580" height="420" rx="18" fill="#fffaf0"/>
+  <rect x="212" y="162" width="236" height="28" rx="8" fill="#171717"/>
+  <rect x="212" y="232" width="276" height="20" rx="6" fill="#d7c8ae"/>
+  <rect x="212" y="280" width="220" height="20" rx="6" fill="#d7c8ae"/>
+  <rect x="516" y="166" width="148" height="232" rx="74" fill="#c9915f"/>
+  <circle cx="590" cy="226" r="44" fill="#f1c08d"/>
+  <path d="M530 230C536 160 632 154 656 226C620 212 579 211 530 230Z" fill="#794825"/>
+  <text x="212" y="640" fill="#ffffff" font-family="Arial, sans-serif" font-size="44" font-weight="800">DUMMY COURSE PHOTO</text>
+</svg>

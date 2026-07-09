@@ -1,0 +1,17 @@
+<svg width="900" height="760" viewBox="0 0 900 760" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="900" height="760" fill="#d8d0c4"/>
+  <rect x="0" y="0" width="900" height="760" fill="url(#g)"/>
+  <circle cx="450" cy="258" r="92" fill="#b78666"/>
+  <path d="M328 290C336 160 552 150 572 292C528 260 411 252 328 290Z" fill="#282018"/>
+  <path d="M262 720C278 502 622 502 638 720H262Z" fill="#b9cde4"/>
+  <path d="M352 435C388 500 512 500 548 435C520 404 382 404 352 435Z" fill="#f3ece2"/>
+  <rect x="76" y="88" width="92" height="500" rx="46" fill="#efe7dc" opacity=".65"/>
+  <rect x="708" y="122" width="80" height="520" rx="40" fill="#efe7dc" opacity=".55"/>
+  <text x="225" y="690" fill="#141414" font-family="Arial, sans-serif" font-size="36" font-weight="800">DUMMY PORTRAIT</text>
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="900" y2="760">
+      <stop stop-color="#f5efe6"/>
+      <stop offset="1" stop-color="#c5b8a6"/>
+    </linearGradient>
+  </defs>
+</svg>

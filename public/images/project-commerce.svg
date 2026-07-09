@@ -1,0 +1,11 @@
+<svg width="900" height="760" viewBox="0 0 900 760" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="900" height="760" fill="#c7d3d6"/>
+  <rect x="96" y="104" width="708" height="472" rx="18" fill="#202426"/>
+  <rect x="132" y="140" width="636" height="400" rx="5" fill="#f5f6f4"/>
+  <rect x="168" y="176" width="564" height="170" rx="12" fill="#101315"/>
+  <text x="198" y="240" fill="#ffffff" font-family="Arial, sans-serif" font-size="42" font-weight="800">DUMMY</text>
+  <text x="198" y="293" fill="#ffffff" font-family="Arial, sans-serif" font-size="42" font-weight="800">COMMERCE</text>
+  <rect x="168" y="382" width="158" height="114" rx="10" fill="#d2b56f"/>
+  <rect x="366" y="382" width="158" height="114" rx="10" fill="#cf6b4d"/>
+  <rect x="564" y="382" width="168" height="114" rx="10" fill="#778f9a"/>
+</svg>

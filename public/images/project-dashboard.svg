@@ -1,0 +1,14 @@
+<svg width="900" height="760" viewBox="0 0 900 760" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="900" height="760" fill="#0f1418"/>
+  <rect x="52" y="78" width="796" height="505" rx="18" fill="#1d252c"/>
+  <rect x="96" y="130" width="320" height="34" rx="8" fill="#e8edf1"/>
+  <rect x="96" y="198" width="245" height="22" rx="6" fill="#5f7487"/>
+  <rect x="96" y="252" width="325" height="190" rx="14" fill="#26333c"/>
+  <rect x="456" y="198" width="296" height="244" rx="14" fill="#2c6b8d"/>
+  <rect x="96" y="478" width="656" height="44" rx="9" fill="#e8edf1"/>
+  <circle cx="602" cy="320" r="82" fill="#c7d9e7"/>
+  <path d="M562 337C581 376 624 377 645 337C630 323 583 323 562 337Z" fill="#f2c18c"/>
+  <circle cx="602" cy="283" r="34" fill="#f2c18c"/>
+  <path d="M555 277C563 230 631 228 648 273C625 265 591 265 555 277Z" fill="#171717"/>
+  <text x="96" y="665" fill="#ffffff" font-family="Arial, sans-serif" font-size="44" font-weight="800">DUMMY PROJECT IMAGE</text>
+</svg>
