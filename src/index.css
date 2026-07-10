@@ -1,0 +1,89 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Geist", "Geist Placeholder", sans-serif;
+  --font-mono: "Geist Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  --color-ink: #171717;
+  --color-night: #0a0a0a;
+  --color-paper: #e9e9e9;
+  --color-soft: #dddddd;
+  --color-muted: #8c8c8c;
+  --color-acid: #cdff70;
+  --color-cyan: #59bbd5;
+  --color-flame: #ff4f4f;
+}
+
+@font-face {
+  font-family: "Geist";
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("https://fonts.gstatic.com/s/geist/v5/gyByhwUxId8gMEwcGFU.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Geist Mono";
+  font-style: normal;
+  font-weight: 400 800;
+  font-display: swap;
+  src: url("https://fonts.gstatic.com/s/geistmono/v6/or3nQ6H-1_WfwkMZI_qYFrcdmg.woff2") format("woff2");
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: #e9e9e9;
+  color: #171717;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  overflow-x: hidden;
+  font-family: "Geist", "Geist Placeholder", sans-serif;
+  background:
+    radial-gradient(circle at 96% 0%, rgba(205, 255, 112, 0.34), transparent 28rem),
+    #e9e9e9;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+::selection {
+  background: #cdff70;
+  color: #171717;
+}
+
+.noise {
+  background: transparent;
+}
+
+.container-page {
+  width: min(100% - 32px, 1380px);
+  margin-inline: auto;
+}
+
+.section-pad {
+  padding-block: clamp(72px, 10vw, 140px);
+}
+
+.headline {
+  font-size: clamp(44px, 5.8vw, 128px);
+  line-height: 0.9;
+  letter-spacing: 0;
+  font-weight: 700;
+}
+
+.display {
+  font-size: clamp(36px, 6vw, 96px);
+  line-height: 0.92;
+  letter-spacing: 0;
+  font-weight: 900;
+}
