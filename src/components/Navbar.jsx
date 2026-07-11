@@ -1,7 +1,7 @@
-import { AnimatePresence, motion, useScroll } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { Menu, Plus, X } from "lucide-react";
-import { useEffect, useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const navItems = [
   { label: "Home", number: "01", to: "/" },
@@ -11,38 +11,79 @@ const navItems = [
 
 const MotionLink = motion(Link);
 
-function RollingNavLink({ item, active, onClick }) {
+const textRollTransition = {
+  duration: 0.42,
+  ease: [0.22, 1, 0.36, 1],
+};
+
+function RollingLetters({ text, hovered }) {
+  return (
+    <motion.span
+      className="relative flex h-5 overflow-hidden leading-5"
+      animate={hovered ? "hover" : "rest"}
+      variants={{
+        rest: { transition: { staggerChildren: 0.018, staggerDirection: -1 } },
+        hover: { transition: { staggerChildren: 0.018, staggerDirection: 1 } },
+      }}
+      aria-hidden="true"
+    >
+      {Array.from(text).map((letter, index) => (
+        <span key={`${letter}-${index}`} className="relative inline-block overflow-hidden">
+          <motion.span
+            className="block"
+            variants={{ rest: { y: 0 }, hover: { y: "-100%" } }}
+            transition={textRollTransition}
+          >
+            {letter === " " ? "\u00a0" : letter}
+          </motion.span>
+          <motion.span
+            className="absolute left-0 top-full block"
+            variants={{ rest: { y: 0 }, hover: { y: "-100%" } }}
+            transition={textRollTransition}
+          >
+            {letter === " " ? "\u00a0" : letter}
+          </motion.span>
+        </span>
+      ))}
+    </motion.span>
+  );
+}
+
+function RollingNavLink({ item, onClick }) {
+  const [hovered, setHovered] = useState(false);
+
   return (
     <MotionLink
       to={item.to}
       onClick={onClick}
-      initial="rest"
-      animate="rest"
-      whileHover="hover"
-      className={`group relative inline-flex items-start text-base font-semibold text-ink ${active ? "after:absolute after:-bottom-1 after:left-0 after:h-px after:w-full after:bg-ink" : ""}`}
+      onPointerEnter={() => setHovered(true)}
+      onPointerLeave={() => setHovered(false)}
+      className="group relative inline-flex items-start text-[18px] font-medium leading-5 tracking-[-0.8px] text-ink"
     >
-      <span className="relative block h-5 overflow-hidden leading-5">
-        <motion.span
-          className="block"
-          variants={{ rest: { y: 0 }, hover: { y: "-100%" } }}
-          transition={{ duration: 0.42, ease: [0.22, 1, 0.36, 1] }}
-        >
-          {item.label}
-        </motion.span>
-        <motion.span
-          className="absolute left-0 top-full block"
-          variants={{ rest: { y: 0 }, hover: { y: "-100%" } }}
-          transition={{ duration: 0.42, ease: [0.22, 1, 0.36, 1] }}
-        >
-          {item.label}
-        </motion.span>
-      </span>
-      <span className="absolute -right-5 -top-3 text-xs font-semibold leading-none text-ink/45">{item.number}</span>
+      <span className="sr-only">{item.label}</span>
+      <RollingLetters text={item.label} hovered={hovered} />
+      <span className="absolute -right-[18px] -top-[7px] font-mono text-[11px] font-medium leading-none tracking-[-0.2px] text-[#666]">{item.number}</span>
+      <motion.span
+        className="absolute -bottom-[5px] left-0 h-px w-full origin-left bg-ink"
+        animate={{ scaleX: hovered ? 1 : 0 }}
+        transition={{ duration: 0.42, ease: [0.22, 1, 0.36, 1] }}
+      />
     </MotionLink>
   );
 }
 
 function NavCta() {
+  const [hovered, setHovered] = useState(false);
+  const [clipOrigin, setClipOrigin] = useState({ x: 0, y: 24 });
+
+  function updateClipOrigin(event) {
+    const bounds = event.currentTarget.getBoundingClientRect();
+    setClipOrigin({
+      x: event.clientX - bounds.left,
+      y: event.clientY - bounds.top,
+    });
+  }
+
   return (
     <MotionLink
       to="/projects"
@@ -50,38 +91,60 @@ function NavCta() {
       animate="rest"
       whileHover="hover"
       whileTap={{ scale: 0.98 }}
-      className="group relative flex items-center"
+      className="group relative inline-flex h-12 min-w-[232px] items-center overflow-hidden rounded-full bg-ink pr-5 text-[16px] font-medium leading-none tracking-[-0.75px] text-white"
+      onPointerEnter={(event) => {
+        updateClipOrigin(event);
+        setHovered(true);
+      }}
+      onPointerMove={updateClipOrigin}
+      onPointerLeave={(event) => {
+        updateClipOrigin(event);
+        setHovered(false);
+      }}
     >
-      <span className="relative z-20 h-11 w-11 overflow-hidden rounded-full border-2 border-paper bg-cyan">
-        <img src="/images/nav-avatar.svg" alt="" className="h-full w-full object-cover" />
-      </span>
-      <span className="relative z-30 -ml-2 grid h-6 w-6 place-items-center rounded-full border-2 border-paper bg-paper text-ink">
-        <Plus className="h-4 w-4" strokeWidth={2.4} />
-      </span>
-      <span className="relative -ml-2 inline-flex h-11 min-w-[188px] items-center overflow-hidden rounded-full bg-ink px-8 pl-7 text-base font-semibold text-paper">
+      <motion.span
+        className="absolute inset-0 bg-paper"
+        animate={{
+          clipPath: hovered
+            ? `circle(150% at ${clipOrigin.x}px ${clipOrigin.y}px)`
+            : `circle(0px at ${clipOrigin.x}px ${clipOrigin.y}px)`,
+        }}
+        transition={{ duration: 0.78, ease: [0.22, 1, 0.36, 1] }}
+      />
+      <span className="relative z-20 h-12 w-12 shrink-0 overflow-hidden rounded-full border-[3px] border-white bg-cyan">
         <motion.span
-          className="absolute inset-0 bg-paper"
-          variants={{
-            rest: { clipPath: "inset(0 100% 0 0 round 999px)" },
-            hover: { clipPath: "inset(0 0% 0 0 round 999px)" },
-          }}
-          transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-        />
-        <span className="relative grid h-5 overflow-hidden leading-5">
+          className="block h-full w-full"
+          animate={{ y: hovered ? "-100%" : "0%" }}
+          transition={{ duration: 0.62, ease: [0.22, 1, 0.36, 1] }}
+        >
+          <img src="/images/nav-avatar.png" alt="" className="h-full w-full object-cover" />
+          <img src="/images/nav-avatar.png" alt="" className="h-full w-full object-cover" />
+        </motion.span>
+      </span>
+      <span className="relative z-30 -ml-[11px] grid h-[22px] w-[22px] shrink-0 place-items-center overflow-hidden rounded-full bg-white text-ink">
+        <motion.span
+          className="grid h-full w-full place-items-center"
+          animate={{ rotate: hovered ? 135 : 0, scale: hovered ? 0.92 : 1 }}
+          transition={{ duration: 0.48, ease: [0.22, 1, 0.36, 1] }}
+        >
+          <Plus className="h-[15px] w-[15px]" strokeWidth={2.2} />
+        </motion.span>
+      </span>
+      <span className="relative z-20 ml-2.5 grid h-5 overflow-hidden leading-5 text-white">
           <motion.span
-            variants={{ rest: { y: 0, color: "#e9e9e9" }, hover: { y: "-100%", color: "#171717" } }}
-            transition={{ duration: 0.42, ease: [0.22, 1, 0.36, 1] }}
+            className="text-white"
+            animate={{ y: hovered ? "-100%" : "0%", color: hovered ? "#171717" : "#ffffff" }}
+            transition={{ duration: 0.62, ease: [0.22, 1, 0.36, 1] }}
           >
             [View Selected Work]
           </motion.span>
           <motion.span
             className="absolute left-0 top-full text-ink"
-            variants={{ rest: { y: 0 }, hover: { y: "-100%" } }}
-            transition={{ duration: 0.42, ease: [0.22, 1, 0.36, 1] }}
+            animate={{ y: hovered ? "-100%" : "0%" }}
+            transition={{ duration: 0.62, ease: [0.22, 1, 0.36, 1] }}
           >
             [View Selected Work]
           </motion.span>
-        </span>
       </span>
     </MotionLink>
   );
@@ -89,37 +152,23 @@ function NavCta() {
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
-  const [hidden, setHidden] = useState(false);
-  const location = useLocation();
-  const { scrollY } = useScroll();
-
-  useEffect(() => {
-    return scrollY.on("change", (latest) => {
-      const previous = scrollY.getPrevious() || 0;
-      setHidden(latest > previous && latest > 160);
-    });
-  }, [scrollY]);
 
   return (
-    <motion.header
-      animate={{ y: hidden ? -110 : 0 }}
-      transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-      className="fixed inset-x-0 top-0 z-50 text-ink"
-    >
-      <nav className="container-page flex h-20 items-center justify-between gap-6">
-        <Link to="/" className="text-2xl font-black uppercase leading-none tracking-normal text-ink">
-          ARCLIGHT
+    <motion.header className="absolute inset-x-0 top-0 z-50 text-ink">
+      <nav className="relative mx-auto flex h-28 w-[calc(100%-58px)] max-w-[1440px] items-center justify-between gap-6 max-[809px]:h-[88px] max-[809px]:w-[calc(100%-48px)]">
+        <Link to="/" className="font-logo origin-left scale-x-[0.84] text-[32px] font-normal uppercase leading-none tracking-[-1px] text-ink">
+          arclight
         </Link>
-        <div className="hidden items-center gap-14 md:flex">
+        <div className="absolute left-[44%] hidden -translate-x-1/2 items-center gap-[46px] min-[810px]:flex">
           {navItems.map((item) => (
-            <RollingNavLink key={item.to} item={item} active={location.pathname === item.to} />
+            <RollingNavLink key={item.to} item={item} />
           ))}
         </div>
-        <div className="hidden md:block">
+        <div className="hidden min-[810px]:block">
           <NavCta />
         </div>
-        <button type="button" onClick={() => setOpen(true)} className="grid h-11 w-11 place-items-center rounded-full border border-ink/14 md:hidden" aria-label="Open menu">
-          <Menu className="h-5 w-5" />
+        <button type="button" onClick={() => setOpen(true)} className="hidden h-6 w-8 place-items-center max-[809px]:grid" aria-label="Open menu">
+          <Menu className="h-6 w-6" strokeWidth={2} />
         </button>
       </nav>
 
@@ -129,11 +178,11 @@ export default function Navbar() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 bg-paper p-6 text-ink md:hidden"
+            className="fixed inset-0 z-50 bg-paper px-6 py-7 text-ink min-[810px]:hidden"
           >
             <div className="flex items-center justify-between">
-              <span className="text-2xl font-black uppercase leading-none">ARCLIGHT</span>
-              <button type="button" onClick={() => setOpen(false)} className="grid h-11 w-11 place-items-center rounded-full border border-ink/14" aria-label="Close menu">
+              <span className="font-logo origin-left scale-x-[0.84] text-[32px] uppercase leading-none tracking-[-1px]">arclight</span>
+              <button type="button" onClick={() => setOpen(false)} className="grid h-10 w-10 place-items-center rounded-full border border-ink/14" aria-label="Close menu">
                 <X className="h-5 w-5" />
               </button>
             </div>
