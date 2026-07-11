@@ -27,7 +27,7 @@ const services = [
 
 function ServiceRow({ service }) {
   return (
-    <article className="grid w-full min-h-[150px] grid-cols-[92px_minmax(0,300px)_minmax(0,1fr)] items-center gap-[24px] rounded-[2px] border border-white/65 bg-white/58 px-[20px] py-[20px] text-ink shadow-[0_1px_0_rgba(23,23,23,0.04)] backdrop-blur-[1px] max-[1050px]:grid-cols-[86px_minmax(0,1fr)] max-[1050px]:gap-x-6 max-[1050px]:gap-y-4 max-[1050px]:py-[18px] max-[720px]:grid-cols-[72px_minmax(0,1fr)] max-[720px]:px-[16px] max-[720px]:py-[16px]">
+    <article className="grid w-full min-h-[150px] grid-cols-[92px_minmax(0,300px)_minmax(0,1fr)] items-center gap-[24px] rounded-[2px] border border-white/50 bg-[#ededed] px-[20px] py-[20px] text-ink shadow-[0_1px_0_rgba(23,23,23,0.04)] max-[1050px]:grid-cols-[86px_minmax(0,1fr)] max-[1050px]:gap-x-6 max-[1050px]:gap-y-4 max-[1050px]:py-[18px] max-[720px]:grid-cols-[72px_minmax(0,1fr)] max-[720px]:px-[16px] max-[720px]:py-[16px]">
       <div className="h-[92px] w-[92px] overflow-hidden rounded-[4px] bg-ink/10 max-[720px]:h-[72px] max-[720px]:w-[72px]">
         <img src={service.image} alt={service.alt} className="h-full w-full object-cover object-center" />
       </div>
