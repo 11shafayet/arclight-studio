@@ -13,7 +13,7 @@ function SectionHeader() {
 
 function StatCard() {
   return (
-    <article className="flex h-full min-h-0 flex-col justify-start rounded-[10px] bg-white px-[28px] pb-[28px] pt-[28px] text-ink shadow-[0_1px_0_rgba(23,23,23,0.04)] max-[1100px]:min-h-[178px]">
+    <article className="flex h-full min-h-0 flex-col justify-start rounded-[10px] bg-white px-[28px] pb-[28px] pt-[28px] text-ink shadow-[0_1px_0_rgba(23,23,23,0.04)] max-[1100px]:min-h-[120px] max-[480px]:px-5 max-[480px]:py-5">
       <div className="mt-[2px] text-[clamp(40px,4.2vw,56px)] font-semibold leading-[0.92] tracking-[-0.06em] text-ink">40+</div>
       <div className="mt-[12px] font-mono text-[12px] font-medium uppercase leading-[14.4px] tracking-[-0.35px] text-[rgb(102,102,102)]">
         Live Projects
@@ -24,7 +24,7 @@ function StatCard() {
 
 function QuoteCard() {
   return (
-    <article className="flex h-full min-h-0 flex-col justify-between rounded-[10px] bg-white px-[28px] pb-[28px] pt-[28px] text-ink shadow-[0_1px_0_rgba(23,23,23,0.04)] max-[1100px]:min-h-[334px]">
+    <article className="flex h-full min-h-0 flex-col justify-between rounded-[10px] bg-white px-[28px] pb-[28px] pt-[28px] text-ink shadow-[0_1px_0_rgba(23,23,23,0.04)] max-[1100px]:min-h-[260px] max-[480px]:px-5 max-[480px]:py-5">
       <div>
         <div className="text-[54px] font-semibold leading-none tracking-[-0.08em] text-ink/10">“”</div>
         <h3 className="mt-[20px] max-w-[285px] text-[clamp(22px,1.55vw,24px)] font-medium leading-[1.12] tracking-[-0.9px] text-ink">
@@ -51,7 +51,7 @@ function QuoteCard() {
 
 function TestimonialCard() {
   return (
-    <article className="flex h-full min-h-[520px] flex-col justify-between rounded-[10px] bg-white px-[28px] pb-[28px] pt-[28px] text-ink shadow-[0_1px_0_rgba(23,23,23,0.04)]">
+    <article className="flex h-full min-h-[520px] flex-col justify-between rounded-[10px] bg-white px-[28px] pb-[28px] pt-[28px] text-ink shadow-[0_1px_0_rgba(23,23,23,0.04)] max-[1100px]:min-h-[380px] max-[480px]:min-h-[340px] max-[480px]:px-5 max-[480px]:py-5">
       <div>
         <h3 className="max-w-[320px] text-[clamp(18px,1.45vw,20px)] font-semibold uppercase leading-[1.16] tracking-[-0.04em] text-ink">
           Strategic partner. Clear thinking. Dependable delivery.
@@ -75,7 +75,7 @@ function TestimonialCard() {
 
 function ImageCard() {
   return (
-    <article className="relative h-full min-h-[520px] overflow-hidden rounded-[10px] bg-[#dedbd6] shadow-[0_1px_0_rgba(23,23,23,0.04)]">
+    <article className="relative h-full min-h-[520px] overflow-hidden rounded-[10px] bg-[#dedbd6] shadow-[0_1px_0_rgba(23,23,23,0.04)] max-[1100px]:h-[480px] max-[1100px]:min-h-0 max-[480px]:h-[360px]">
       <img src={testimonialImage} alt="Farzana portrait" className="h-full w-full object-cover object-center" />
     </article>
   );
@@ -83,18 +83,18 @@ function ImageCard() {
 
 export default function ClientExperienceSection() {
   return (
-    <section id="testimonial" className="relative overflow-hidden py-[96px] text-ink max-[900px]:py-16">
-      <div className="mx-auto w-[calc(100%-120px)] max-w-[1440px] max-[900px]:w-[calc(100%-48px)]">
+    <section id="testimonial" className="relative overflow-hidden py-[96px] text-ink max-[900px]:py-16 max-[480px]:py-12">
+      <div className="mx-auto w-[calc(100%-120px)] max-w-[1440px] max-[900px]:w-[calc(100%-48px)] max-[480px]:w-[calc(100%-32px)]">
         <SectionHeader />
 
         <div className="mt-[54px] grid grid-cols-[minmax(0,0.9fr)_minmax(0,1fr)] gap-8 max-[1100px]:grid-cols-1">
-          <h2 className="text-[clamp(52px,6.52vw,94px)] font-bold uppercase leading-[0.96] tracking-[-0.06em] text-[rgb(23,23,23)]">
+          <h2 className="text-[clamp(52px,6.52vw,94px)] font-bold uppercase leading-[0.96] tracking-[-0.06em] text-[rgb(23,23,23)] max-[480px]:text-[44px]">
             Client
             <br />
             Experience
           </h2>
 
-          <div className="max-w-[400px] justify-self-end pt-[46px] text-[clamp(18px,1.53vw,22px)] font-medium leading-[1.2] tracking-[-0.9px] text-[rgb(23,23,23)] max-[1100px]:w-full max-[1100px]:max-w-[520px] max-[1100px]:justify-self-start max-[1100px]:pt-0">
+          <div className="max-w-[400px] justify-self-end pt-[46px] text-[clamp(18px,1.53vw,22px)] font-medium leading-[1.2] tracking-[-0.9px] text-[rgb(23,23,23)] max-[1100px]:w-full max-[1100px]:max-w-[520px] max-[1100px]:justify-self-start max-[1100px]:pt-0 max-[480px]:text-[18px]">
             A direct note from a client on strategic thinking, clarity, and dependable delivery.
           </div>
         </div>

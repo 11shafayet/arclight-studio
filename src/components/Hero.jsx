@@ -81,7 +81,7 @@ function AudienceRotator() {
   }, []);
 
   return (
-    <span className="relative block h-[40px] w-[540px] overflow-hidden max-[900px]:h-9 max-[900px]:w-[min(100vw-48px,460px)]">
+    <span className="relative block h-[40px] w-[540px] overflow-hidden max-[900px]:h-9 max-[900px]:w-[min(100vw-48px,460px)] max-[480px]:h-[32px] max-[480px]:w-full">
       <AnimatePresence mode="popLayout" initial={false}>
         <motion.span
           key={audiences[index]}
@@ -118,8 +118,8 @@ function AudienceRotator() {
 export default function Hero() {
   return (
     <section className="relative overflow-visible pb-[60px] text-ink max-[809px]:pb-12">
-      <div className="hero-container relative z-10 mx-auto w-[calc(100%-58px)] max-w-[1440px] pt-[210px] max-[809px]:w-[calc(100%-48px)] max-[809px]:pt-[140px]">
-        <div className="flex items-start justify-between gap-8 text-[clamp(14px,1.25vw,18px)] font-medium leading-[1.2] tracking-[-0.55px] text-[rgb(23,23,23)] max-[700px]:text-[12px]">
+      <div className="hero-container relative z-10 mx-auto w-[calc(100%-58px)] max-w-[1440px] pt-[210px] max-[809px]:w-[calc(100%-48px)] max-[809px]:pt-[128px] max-[480px]:w-[calc(100%-32px)] max-[480px]:pt-[112px]">
+        <div className="flex items-start justify-between gap-8 text-[clamp(14px,1.25vw,18px)] font-medium leading-[1.2] tracking-[-0.55px] text-[rgb(23,23,23)] max-[700px]:gap-4 max-[700px]:text-[12px] max-[480px]:grid max-[480px]:gap-2">
           <p className="uppercase">WHITE-LABEL WORDPRESS &amp; FRAMER DEVELOPMENT</p>
           <p className="whitespace-nowrap">Working Worldwide</p>
         </div>
@@ -127,20 +127,20 @@ export default function Hero() {
         <motion.h1
           initial={{ opacity: 1 }}
           animate={{ opacity: 1 }}
-          className="hero-headline mt-[22px] whitespace-nowrap font-sans font-bold uppercase text-ink"
+          className="hero-headline mt-[22px] whitespace-nowrap font-sans font-bold uppercase text-ink max-[760px]:whitespace-normal max-[760px]:text-[48px] max-[760px]:leading-[0.94] max-[480px]:text-[42px]"
         >
           WE BUILD. YOU TAKE THE CREDIT.
         </motion.h1>
 
         <div className="mt-[19px] grid grid-cols-[auto_1fr] items-start gap-x-8 max-[760px]:grid-cols-1">
           <HeroButton />
-          <p className="justify-self-end whitespace-nowrap pt-[2px] text-right text-[34px] font-bold uppercase leading-[1.08] tracking-[-1.58px] max-[900px]:text-[30px] max-[760px]:mt-8 max-[760px]:justify-self-start max-[760px]:text-left">
+          <p className="justify-self-end whitespace-nowrap pt-[2px] text-right text-[34px] font-bold uppercase leading-[1.08] tracking-[-1.58px] max-[900px]:text-[30px] max-[760px]:mt-8 max-[760px]:justify-self-start max-[760px]:text-left max-[480px]:w-full max-[480px]:text-[25px] max-[480px]:tracking-[-1.1px]">
             <AudienceRotator />
           </p>
         </div>
 
         <div className="mt-[64px] grid grid-cols-[1fr_auto] items-start gap-8 max-[760px]:mt-12 max-[760px]:grid-cols-1">
-          <p className="max-w-[560px] text-[22px] font-medium leading-[26.4px] tracking-[-1px] text-[rgb(23,23,23)]">
+          <p className="max-w-[560px] text-[22px] font-medium leading-[26.4px] tracking-[-1px] text-[rgb(23,23,23)] max-[480px]:text-[18px] max-[480px]:leading-[22px]">
             We build your client sites under your brand.
             <br />
             You keep the relationship, the credit, and the margin.

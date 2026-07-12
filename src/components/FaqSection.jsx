@@ -80,11 +80,11 @@ export default function FaqSection() {
   const [openIndex, setOpenIndex] = useState(null);
 
   return (
-    <section id="faq" className="relative overflow-hidden py-[96px] text-ink max-[900px]:py-16">
-      <div className="mx-auto w-[calc(100%-120px)] max-w-[1440px] max-[900px]:w-[calc(100%-48px)]">
+    <section id="faq" className="relative overflow-hidden py-[96px] text-ink max-[900px]:py-16 max-[480px]:py-12">
+      <div className="mx-auto w-[calc(100%-120px)] max-w-[1440px] max-[900px]:w-[calc(100%-48px)] max-[480px]:w-[calc(100%-32px)]">
         <SectionHeader />
 
-        <div className="mt-[72px] grid grid-cols-[minmax(260px,0.43fr)_minmax(0,1fr)] gap-[120px] max-[1100px]:gap-10 max-[900px]:grid-cols-1 max-[900px]:gap-8">
+        <div className="mt-[72px] grid grid-cols-[minmax(260px,0.43fr)_minmax(0,1fr)] gap-[120px] max-[1100px]:gap-10 max-[900px]:grid-cols-1 max-[900px]:gap-8 max-[480px]:mt-10">
           <div>
             <div className="aspect-[1.5] w-[360px] max-w-full overflow-hidden rounded-[4px] bg-ink/10">
               <img src={faqImage} alt="Website preview" className="h-full w-full object-cover object-center" />

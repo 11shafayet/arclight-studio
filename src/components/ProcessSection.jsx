@@ -43,11 +43,11 @@ function StepCard({ item, index }) {
   const dots = [1, 2, 3, 4, 5];
 
   return (
-    <article className="relative flex min-h-[270px] flex-col overflow-hidden rounded-[10px] bg-white shadow-[0_1px_0_rgba(23,23,23,0.04)]">
+    <article className="relative flex min-h-[270px] flex-col overflow-hidden rounded-[10px] bg-white shadow-[0_1px_0_rgba(23,23,23,0.04)] max-[480px]:min-h-[240px]">
       <div className="pointer-events-none absolute inset-x-0 top-0 z-10 h-[10px] bg-[repeating-linear-gradient(90deg,rgba(23,23,23,0.16)_0_1px,transparent_1px_6px)] opacity-100" />
 
-      <div className="flex flex-1 flex-col px-[18px] pb-[18px] pt-[30px]">
-        <div className="mb-[48px] flex items-center justify-between">
+      <div className="flex flex-1 flex-col px-[18px] pb-[18px] pt-[30px] max-[480px]:px-4 max-[480px]:pb-4">
+        <div className="mb-[48px] flex items-center justify-between max-[480px]:mb-8">
           <div className="flex items-center gap-[3px]">
             {dots.map((dot) => (
               <span
@@ -62,10 +62,10 @@ function StepCard({ item, index }) {
         </div>
 
         <Icon className="h-[18px] w-[18px] text-ink" strokeWidth={1.8} />
-        <h3 className="mt-[16px] max-w-[210px] text-[24px] font-semibold leading-[28px] tracking-[-0.9px] text-ink">
+        <h3 className="mt-[16px] max-w-[210px] text-[24px] font-semibold leading-[28px] tracking-[-0.9px] text-ink max-[480px]:text-[21px] max-[480px]:leading-[24px]">
           {item.title}
         </h3>
-        <p className="mt-[12px] max-w-[228px] text-[16px] font-medium leading-[22px] tracking-[-0.55px] text-[rgb(69,69,69)]">
+        <p className="mt-[12px] max-w-[228px] text-[16px] font-medium leading-[22px] tracking-[-0.55px] text-[rgb(69,69,69)] max-[480px]:max-w-none max-[480px]:text-[15px] max-[480px]:leading-[20px]">
           {item.description}
         </p>
       </div>
@@ -75,14 +75,14 @@ function StepCard({ item, index }) {
 
 export default function ProcessSection() {
   return (
-    <section id="process" className="relative overflow-hidden py-[100px] text-ink max-[900px]:py-16">
+    <section id="process" className="relative overflow-hidden py-[100px] text-ink max-[900px]:py-16 max-[480px]:py-12">
       <div
         className="pointer-events-none absolute left-[-420px] top-[-150px] h-[640px] w-[640px] rounded-full blur-[57px]"
         style={{
           background: "radial-gradient(circle at 50% 50%, rgba(255, 79, 79, 0.45) 0%, rgba(255, 79, 79, 0) 70%)",
         }}
       />
-      <div className="mx-auto w-[calc(100%-120px)] max-w-[1440px] max-[900px]:w-[calc(100%-48px)]">
+      <div className="mx-auto w-[calc(100%-120px)] max-w-[1440px] max-[900px]:w-[calc(100%-48px)] max-[480px]:w-[calc(100%-32px)]">
         <div className="relative flex items-center justify-between border-b border-ink/10 pb-[15px] font-mono text-[14px] font-medium uppercase leading-[16.8px] tracking-[-0.35px] text-ink max-[700px]:grid max-[700px]:gap-2">
           <p>[05]</p>
           <p className="absolute left-1/2 -translate-x-1/2 max-[700px]:static max-[700px]:translate-x-0">[ Simple process ]</p>
@@ -90,7 +90,7 @@ export default function ProcessSection() {
         </div>
 
         <div className="mt-[38px] grid grid-cols-[minmax(0,0.58fr)_minmax(260px,0.42fr)] items-start gap-8 max-[900px]:grid-cols-1">
-          <h2 className="text-[clamp(72px,6.52vw,94px)] font-bold uppercase leading-[0.92] tracking-[-0.06em] text-ink">
+          <h2 className="text-[clamp(72px,6.52vw,94px)] font-bold uppercase leading-[0.92] tracking-[-0.06em] text-ink max-[480px]:text-[50px]">
             Our
             <br />
             Process
@@ -100,7 +100,7 @@ export default function ProcessSection() {
           </p>
         </div>
 
-        <div className="mt-[42px] grid grid-cols-5 gap-[8px] max-[1200px]:grid-cols-2 max-[760px]:grid-cols-1">
+        <div className="mt-[42px] grid grid-cols-5 gap-[8px] max-[1200px]:grid-cols-2 max-[760px]:grid-cols-1 max-[480px]:mt-8">
           {steps.map((item, index) => (
             <StepCard key={item.step} item={item} index={index} />
           ))}

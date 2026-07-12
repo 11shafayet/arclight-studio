@@ -1,7 +1,12 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 
-const primaryLinks = ["Home", "Projects", "Contact", "Work"];
+const primaryLinks = [
+  { label: "Home", href: "/" },
+  { label: "Projects", href: "/projects" },
+  { label: "Contact", href: "/contact" },
+  { label: "Work", href: "/projects" },
+];
 const socialLinks = ["X.Com", "Instagram", "Linkedin"];
 
 const textRollTransition = {
@@ -69,7 +74,7 @@ export default function Footer() {
         }}
       />
 
-      <div className="relative mx-auto flex min-h-[584px] w-[calc(100%-120px)] max-w-[1440px] flex-col pt-[66px] max-[900px]:min-h-[520px] max-[900px]:w-[calc(100%-48px)]">
+      <div className="relative mx-auto flex min-h-[584px] w-[calc(100%-120px)] max-w-[1440px] flex-col pt-[66px] max-[900px]:min-h-[520px] max-[900px]:w-[calc(100%-48px)] max-[480px]:min-h-[460px] max-[480px]:w-[calc(100%-32px)] max-[480px]:pt-10">
         <div className="grid grid-cols-[minmax(0,1fr)_180px_180px] gap-[150px] max-[900px]:grid-cols-1 max-[900px]:gap-10">
           <div>
             <p className="font-mono text-[14px] font-medium uppercase leading-[21px] tracking-[-0.8px] text-white/50">
@@ -77,7 +82,7 @@ export default function Footer() {
             </p>
             <a
               href="mailto:contact@arclightstudio.org"
-              className="mt-[22px] block w-fit text-[36px] font-semibold uppercase leading-[44px] tracking-[-1px] text-white max-[720px]:text-[30px]"
+              className="mt-[22px] block w-fit break-all text-[36px] font-semibold uppercase leading-[44px] tracking-[-1px] text-white max-[720px]:text-[26px] max-[720px]:leading-[32px] max-[480px]:text-[22px] max-[480px]:leading-[28px]"
             >
               contact@arclightstudio.org
             </a>
@@ -85,7 +90,9 @@ export default function Footer() {
 
           <nav className="flex flex-col gap-[18px]">
             {primaryLinks.map((link) => (
-              <FooterLink key={link}>{link}</FooterLink>
+              <FooterLink key={link.label} href={link.href}>
+                {link.label}
+              </FooterLink>
             ))}
           </nav>
 
@@ -98,7 +105,7 @@ export default function Footer() {
 
         <div className="mt-auto pb-[42px]">
           <div className="relative">
-            <h2 className="whitespace-nowrap text-center text-[clamp(72px,10.6vw,160px)] font-bold uppercase leading-[0.8] tracking-[-4px] text-white max-[900px]:whitespace-normal max-[900px]:text-[clamp(58px,13vw,104px)]">
+            <h2 className="whitespace-nowrap text-center text-[clamp(72px,10.6vw,160px)] font-bold uppercase leading-[0.8] tracking-[-4px] text-white max-[900px]:whitespace-normal max-[900px]:text-[clamp(58px,13vw,104px)] max-[480px]:text-[50px] max-[480px]:tracking-[-2px]">
               Arclight Studio
             </h2>
             <span className="absolute right-0 top-[18%] text-[24px] font-bold leading-none text-white max-[900px]:static max-[900px]:ml-2">

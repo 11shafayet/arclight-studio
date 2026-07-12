@@ -100,18 +100,18 @@ function HeaderBar({ rollNo = "[02]", title = "// More Projects", right = "Relat
 function RelatedCard({ project }) {
   return (
     <Link to={`/projects/${project.slug}`} className="group block cursor-pointer">
-      <div className="relative h-[520px] overflow-hidden rounded-[10px] bg-ink max-[900px]:h-[390px]">
+      <div className="relative h-[520px] overflow-hidden rounded-[10px] bg-ink max-[900px]:h-[340px] max-[480px]:h-[280px]">
         <img
           src={project.image}
           alt={project.alt}
-          className="absolute inset-0 h-[calc(100%+120px)] w-full -translate-y-[60px] object-cover object-center transition-transform duration-500 ease-out group-hover:scale-[1.05]"
+          className="absolute inset-0 h-[calc(100%+120px)] w-full -translate-y-[60px] object-cover object-center transition-transform duration-500 ease-out group-hover:scale-[1.05] max-[480px]:h-full max-[480px]:translate-y-0"
         />
         {["right-5 top-5", "left-5 top-5 -rotate-90", "bottom-5 right-5 rotate-90", "bottom-5 left-5 rotate-180"].map((position) => (
           <span key={position} className={`absolute h-5 w-5 border-r-2 border-t-2 border-white opacity-0 transition-opacity duration-300 group-hover:opacity-100 ${position}`} />
         ))}
       </div>
-      <div className="mt-[14px] flex h-[25px] items-start justify-between gap-5 overflow-hidden text-[22px] font-medium leading-[1.2] tracking-[-1.3px] text-ink">
-        <span className="relative grid h-[25px] overflow-hidden">
+      <div className="mt-[14px] flex h-[25px] items-start justify-between gap-5 overflow-hidden text-[22px] font-medium leading-[1.2] tracking-[-1.3px] text-ink max-[480px]:text-[18px] max-[480px]:tracking-[-0.8px]">
+        <span className="relative grid h-[25px] min-w-0 overflow-hidden whitespace-nowrap">
           <span className="transition-transform duration-500 ease-out group-hover:-translate-y-full">{project.title}</span>
           <span className="absolute left-0 top-full transition-transform duration-500 ease-out group-hover:-translate-y-full">{project.title}</span>
         </span>
@@ -142,16 +142,16 @@ export default function ProjectDetail() {
 
   return (
     <>
-      <main className="relative overflow-hidden bg-paper px-5 pb-[140px] pt-[300px] text-ink max-[1199px]:pt-[260px] max-[809px]:px-0 max-[809px]:pb-20 max-[809px]:pt-[228px]">
-        <section className="relative z-10 px-8 pb-[120px] max-[809px]:px-6 max-[809px]:pb-20">
+      <main className="relative overflow-hidden bg-paper px-5 pb-[140px] pt-[300px] text-ink max-[1199px]:pt-[260px] max-[809px]:px-0 max-[809px]:pb-20 max-[809px]:pt-[160px] max-[480px]:pt-[132px]">
+        <section className="relative z-10 px-8 pb-[120px] max-[809px]:px-6 max-[809px]:pb-20 max-[480px]:px-4">
           <div className="mx-auto flex w-full max-w-[1380px] items-start justify-center gap-[50px] max-[1199px]:flex-col">
             <aside className="sticky top-[130px] w-[calc(45%-25px)] overflow-hidden py-[30px] max-[1199px]:static max-[1199px]:w-full max-[1199px]:py-0">
-              <motion.div {...reveal} className="flex flex-col items-end gap-[60px] overflow-hidden max-[1199px]:items-start">
+              <motion.div {...reveal} className="flex flex-col items-end gap-[60px] overflow-hidden max-[1199px]:items-start max-[809px]:!translate-y-0 max-[809px]:!opacity-100 max-[480px]:gap-9">
                 <div className="grid w-full gap-5">
-                  <h1 className="max-w-full break-words text-[84px] font-bold uppercase leading-[86px] tracking-[-2.1px] text-ink max-[1199px]:text-[78px] max-[1199px]:leading-[80px] max-[809px]:text-[56px] max-[809px]:leading-[64px] max-[809px]:tracking-[-2.6px]">
+                  <h1 className="max-w-full break-words text-[84px] font-bold uppercase leading-[86px] tracking-[-2.1px] text-ink max-[1199px]:text-[78px] max-[1199px]:leading-[80px] max-[809px]:text-[52px] max-[809px]:leading-[56px] max-[809px]:tracking-[-2.2px] max-[480px]:text-[40px] max-[480px]:leading-[43px]">
                     {project.title}
                   </h1>
-                  <p className="whitespace-pre-line text-[22px] font-medium leading-[1.2] tracking-[-1.3px] text-ink">
+                  <p className="whitespace-pre-line text-[22px] font-medium leading-[1.2] tracking-[-1.3px] text-ink max-[480px]:text-[18px] max-[480px]:tracking-[-0.8px]">
                     {project.description}
                   </p>
                   {project.website && <ProjectButton href={project.website} />}
@@ -173,13 +173,13 @@ export default function ProjectDetail() {
           </div>
         </section>
 
-        <section className="relative z-10 px-8 pb-[160px] pt-[100px] max-[809px]:px-6 max-[809px]:py-20">
+        <section className="relative z-10 px-8 pb-[160px] pt-[100px] max-[809px]:px-6 max-[809px]:py-20 max-[480px]:px-4">
           <div className="mx-auto grid w-full max-w-[1380px] gap-10">
             <div className="grid gap-12">
               <HeaderBar />
               <motion.h2
                 {...reveal}
-                className="text-[94px] font-bold uppercase leading-[94px] tracking-[-3px] text-ink mix-blend-difference max-[1199px]:text-[90px] max-[809px]:text-[56px] max-[809px]:leading-[56px]"
+                className="text-[94px] font-bold uppercase leading-[94px] tracking-[-3px] text-ink mix-blend-difference max-[1199px]:text-[90px] max-[809px]:text-[52px] max-[809px]:leading-[52px] max-[480px]:text-[42px] max-[480px]:leading-[42px]"
               >
                 More
                 <br />

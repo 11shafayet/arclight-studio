@@ -69,7 +69,7 @@ function TeamCard({ card }) {
       <img
         src={card.image}
         alt={card.alt}
-        className="h-[510px] min-h-[510px] w-full rounded-lg object-cover object-top max-[809px]:h-[420px] max-[809px]:min-h-[420px]"
+        className="h-[510px] min-h-[510px] w-full rounded-lg object-cover object-top max-[809px]:h-[360px] max-[809px]:min-h-[360px] max-[480px]:h-[310px] max-[480px]:min-h-[310px]"
       />
       <p className="mt-2.5 w-fit font-sans text-[16px] font-medium leading-[1.2] tracking-[-0.5px] text-ink">{card.caption}</p>
     </div>
@@ -124,7 +124,7 @@ export default function ContactPage() {
   return (
     <>
       <main className="relative z-10 overflow-hidden bg-white text-ink">
-        <section className="relative z-[4] flex w-full flex-col items-center gap-[60px] overflow-visible px-8 pb-[180px] pt-[200px] max-[1199px]:pt-[160px] max-[809px]:px-6 max-[809px]:pt-[140px]">
+        <section className="relative z-[4] flex w-full flex-col items-center gap-[60px] overflow-visible px-8 pb-[180px] pt-[200px] max-[1199px]:pt-[160px] max-[809px]:px-6 max-[809px]:pb-[120px] max-[809px]:pt-[128px] max-[480px]:px-4 max-[480px]:pb-20 max-[480px]:pt-[112px]">
           <motion.div
             className="pointer-events-none absolute right-[-286px] top-[-214px] z-[-1] h-[604px] w-[604px] bg-[radial-gradient(60%_90.9090909090909%_at_49.6%_52.3%,#ceff71_0%,rgba(10,10,10,0)_100%)] blur-[57px]"
             initial={{ opacity: 0.001 }}
@@ -136,7 +136,7 @@ export default function ContactPage() {
             <PageHeader />
 
             <motion.h1
-              className="w-full text-[clamp(58px,7.3vw,112px)] font-bold uppercase leading-[0.9] tracking-[-0.045em] text-ink"
+              className="w-full text-[clamp(58px,7.3vw,112px)] font-bold uppercase leading-[0.9] tracking-[-0.045em] text-ink max-[809px]:!translate-y-0 max-[809px]:!opacity-100 max-[480px]:text-[48px]"
               initial={{ opacity: 0, y: 48 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.35 }}
@@ -145,10 +145,10 @@ export default function ContactPage() {
               Contact Us.
             </motion.h1>
 
-            <div className="flex w-full items-center justify-center gap-16 max-[809px]:flex-col max-[809px]:items-stretch max-[809px]:gap-8">
+            <div className="flex w-full items-center justify-center gap-16 max-[809px]:mt-4 max-[809px]:flex-col max-[809px]:items-stretch max-[809px]:gap-8">
               <aside className="flex min-w-0 flex-1 self-stretch overflow-clip pt-10 max-[1199px]:pt-5 max-[809px]:order-1 max-[809px]:w-full">
                 <div className="sticky top-[50px] flex w-full flex-col items-start gap-4 pb-[30px] max-[809px]:relative max-[809px]:top-auto">
-                  <h2 className="w-full text-[clamp(38px,4.4vw,64px)] font-bold uppercase leading-[0.94] tracking-[-0.045em] text-ink">
+                  <h2 className="w-full text-[clamp(38px,4.4vw,64px)] font-bold uppercase leading-[0.94] tracking-[-0.045em] text-ink max-[480px]:text-[34px]">
                     Have an approved design ready for development?
                   </h2>
                   <p className="max-w-[370px] text-[18px] font-medium leading-[1.2] tracking-[-0.8px] text-ink">
@@ -160,7 +160,7 @@ export default function ContactPage() {
                       <h5 className="text-[22px] font-semibold leading-[1.1] tracking-[-0.8px] text-ink">Contact</h5>
                       <a
                         href="mailto:contact@arclightstudio.org"
-                        className="text-[18px] font-medium leading-[1.2] tracking-[-0.5px] text-ink underline underline-offset-2"
+                        className="break-all text-[18px] font-medium leading-[1.2] tracking-[-0.5px] text-ink underline underline-offset-2"
                       >
                         contact@arclightstudio.org
                       </a>
