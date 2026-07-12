@@ -1,4 +1,4 @@
-name: Deploy Arclight Studio
+name: Build Arclight Studio
 
 on:
   push:
@@ -8,16 +8,15 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
 
 concurrency:
-  group: arclightstudio-production
+  group: arclightstudio-build
   cancel-in-progress: true
 
 jobs:
-  build-and-deploy:
+  build:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
 
     steps:
       - name: Checkout repository
@@ -35,36 +34,32 @@ jobs:
       - name: Build website
         run: npm run build
 
-      - name: Configure SSH
-        env:
-          SSH_PRIVATE_KEY: ${{ secrets.CPANEL_SSH_PRIVATE_KEY }}
-          KNOWN_HOSTS: ${{ secrets.CPANEL_KNOWN_HOSTS }}
+      - name: Copy Apache configuration
         run: |
-          install -m 700 -d ~/.ssh
+          if [ -f public/.htaccess ]; then
+            cp public/.htaccess dist/.htaccess
+          fi
 
-          printf '%s\n' "$SSH_PRIVATE_KEY" > ~/.ssh/id_ed25519
-          chmod 600 ~/.ssh/id_ed25519
-
-          printf '%s\n' "$KNOWN_HOSTS" > ~/.ssh/known_hosts
-          chmod 644 ~/.ssh/known_hosts
-
-      - name: Test SSH connection
+      - name: Publish build to deploy branch
         run: |
-          ssh \
-            -p 2977 \
-            -i ~/.ssh/id_ed25519 \
-            -o BatchMode=yes \
-            -o IdentitiesOnly=yes \
-            -o StrictHostKeyChecking=yes \
-            -o ConnectTimeout=20 \
-            shafayet@shafayet.me \
-            "echo SSH connection successful"
+          mkdir -p /tmp/arclight-dist
+          cp -a dist/. /tmp/arclight-dist/
 
-      - name: Deploy build to cPanel
-        run: |
-          rsync -az --delete \
-            --exclude=".well-known/" \
-            --exclude="cgi-bin/" \
-            -e "ssh -p 2977 -i ~/.ssh/id_ed25519 -o BatchMode=yes -o IdentitiesOnly=yes -o StrictHostKeyChecking=yes -o ConnectTimeout=20" \
-            dist/ \
-            shafayet@shafayet.me:/home/shafayet/arclightstudio.org/
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git checkout --orphan deploy-temp
+
+          git rm -rf . || true
+
+          find . \
+            -mindepth 1 \
+            -maxdepth 1 \
+            ! -name ".git" \
+            -exec rm -rf {} +
+
+          cp -a /tmp/arclight-dist/. .
+
+          git add -A
+          git commit -m "Deploy ${GITHUB_SHA}"
+          git push --force origin HEAD:deploy
