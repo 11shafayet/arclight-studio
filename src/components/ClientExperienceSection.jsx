@@ -13,7 +13,7 @@ function SectionHeader() {
 
 function StatCard() {
   return (
-    <article className="flex h-full min-h-[178px] flex-col justify-start rounded-[10px] bg-white px-[28px] pb-[28px] pt-[28px] text-ink shadow-[0_1px_0_rgba(23,23,23,0.04)]">
+    <article className="flex h-full min-h-0 flex-col justify-start rounded-[10px] bg-white px-[28px] pb-[28px] pt-[28px] text-ink shadow-[0_1px_0_rgba(23,23,23,0.04)] max-[1100px]:min-h-[178px]">
       <div className="mt-[2px] text-[clamp(40px,4.2vw,56px)] font-semibold leading-[0.92] tracking-[-0.06em] text-ink">40+</div>
       <div className="mt-[12px] font-mono text-[12px] font-medium uppercase leading-[14.4px] tracking-[-0.35px] text-[rgb(102,102,102)]">
         Live Projects
@@ -24,7 +24,7 @@ function StatCard() {
 
 function QuoteCard() {
   return (
-    <article className="flex h-full min-h-[334px] flex-col justify-between rounded-[10px] bg-white px-[28px] pb-[28px] pt-[28px] text-ink shadow-[0_1px_0_rgba(23,23,23,0.04)]">
+    <article className="flex h-full min-h-0 flex-col justify-between rounded-[10px] bg-white px-[28px] pb-[28px] pt-[28px] text-ink shadow-[0_1px_0_rgba(23,23,23,0.04)] max-[1100px]:min-h-[334px]">
       <div>
         <div className="text-[54px] font-semibold leading-none tracking-[-0.08em] text-ink/10">“”</div>
         <h3 className="mt-[20px] max-w-[285px] text-[clamp(22px,1.55vw,24px)] font-medium leading-[1.12] tracking-[-0.9px] text-ink">
@@ -94,7 +94,7 @@ export default function ClientExperienceSection() {
             Experience
           </h2>
 
-          <div className="justify-self-end pt-[46px] text-[clamp(18px,1.53vw,22px)] font-medium leading-[1.2] tracking-[-0.9px] text-[rgb(23,23,23)] max-[1100px]:justify-self-start max-[1100px]:pt-0">
+          <div className="max-w-[400px] justify-self-end pt-[46px] text-[clamp(18px,1.53vw,22px)] font-medium leading-[1.2] tracking-[-0.9px] text-[rgb(23,23,23)] max-[1100px]:w-full max-[1100px]:max-w-[520px] max-[1100px]:justify-self-start max-[1100px]:pt-0">
             A direct note from a client on strategic thinking, clarity, and dependable delivery.
           </div>
         </div>
@@ -108,7 +108,7 @@ export default function ClientExperienceSection() {
             <TestimonialCard />
           </div>
 
-          <div className="flex flex-col gap-[8px] max-[1100px]:order-3">
+          <div className="grid h-full min-h-[520px] grid-rows-[132px_minmax(0,1fr)] gap-[8px] max-[1100px]:order-3 max-[1100px]:flex max-[1100px]:min-h-0 max-[1100px]:flex-col">
             <StatCard />
             <QuoteCard />
           </div>

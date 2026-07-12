@@ -1,5 +1,8 @@
 import { Route, Routes } from "react-router-dom";
+import ContactSection from "./components/ContactSection.jsx";
 import DeliveryProof from "./components/DeliveryProof.jsx";
+import FaqSection from "./components/FaqSection.jsx";
+import Footer from "./components/Footer.jsx";
 import Hero from "./components/Hero.jsx";
 import ClientExperienceSection from "./components/ClientExperienceSection.jsx";
 import Navbar from "./components/Navbar.jsx";
@@ -21,6 +24,9 @@ function Home() {
       <PricingSection />
       <ProcessSection />
       <ClientExperienceSection />
+      <FaqSection />
+      <ContactSection />
+      <Footer />
     </>
   );
 }

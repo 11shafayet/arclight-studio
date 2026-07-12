@@ -5,15 +5,15 @@
     "preview": "vite preview --host 0.0.0.0"
   },
   "dependencies": {
+    "@emailjs/browser": "^4.4.1",
+    "@tailwindcss/vite": "latest",
     "@vitejs/plugin-react": "latest",
-    "vite": "latest",
+    "framer-motion": "latest",
+    "lucide-react": "latest",
     "react": "latest",
     "react-dom": "latest",
     "react-router-dom": "latest",
     "tailwindcss": "latest",
-    "@tailwindcss/vite": "latest",
-    "framer-motion": "latest",
-    "lucide-react": "latest"
-  },
-  "devDependencies": {}
+    "vite": "latest"
+  }
 }
