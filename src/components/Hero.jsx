@@ -8,39 +8,18 @@ const audiences = ["FOR BRANDING STUDIOS", "FOR WEB DESIGN AGENCIES"];
 
 function HeroButton() {
   const [hovered, setHovered] = useState(false);
-  const [clipOrigin, setClipOrigin] = useState({ x: 0, y: 17 });
-
-  function updateClipOrigin(event) {
-    const bounds = event.currentTarget.getBoundingClientRect();
-    setClipOrigin({
-      x: event.clientX - bounds.left,
-      y: event.clientY - bounds.top,
-    });
-  }
 
   return (
     <Link
       to="/contact"
-      className="group relative inline-flex h-[34px] min-w-[206px] items-center overflow-hidden rounded-full bg-ink pr-[16px] text-[16px] font-medium leading-none tracking-[-0.8px] text-white"
-      onPointerEnter={(event) => {
-        updateClipOrigin(event);
+      className="group relative inline-flex h-[34px] min-w-[206px] items-center overflow-hidden rounded-full bg-ink pr-[16px] text-[16px] font-medium leading-none tracking-[-0.8px] text-white transition-[transform,box-shadow] duration-500 ease-out hover:-translate-y-0.5 hover:shadow-[0_12px_24px_rgba(23,23,23,0.22)]"
+      onPointerEnter={() => {
         setHovered(true);
       }}
-      onPointerMove={updateClipOrigin}
-      onPointerLeave={(event) => {
-        updateClipOrigin(event);
+      onPointerLeave={() => {
         setHovered(false);
       }}
     >
-      <motion.span
-        className="absolute inset-0 bg-[#f4ead8]"
-        animate={{
-          clipPath: hovered
-            ? `circle(150% at ${clipOrigin.x}px ${clipOrigin.y}px)`
-            : `circle(0px at ${clipOrigin.x}px ${clipOrigin.y}px)`,
-        }}
-        transition={{ duration: 0.78, ease: [0.22, 1, 0.36, 1] }}
-      />
       <span className="relative z-20 grid h-[34px] w-[34px] shrink-0 place-items-center rounded-full border border-ink bg-white text-ink">
         <motion.span
           animate={{ rotate: hovered ? 135 : 0, scale: hovered ? 0.92 : 1 }}
@@ -52,17 +31,17 @@ function HeroButton() {
       <span className="relative z-20 ml-[9px] grid h-5 overflow-hidden leading-5 text-white">
         <motion.span
           className="text-white"
-          animate={{ y: hovered ? "-100%" : "0%", color: hovered ? "#171717" : "#ffffff" }}
+          animate={{ y: hovered ? "-100%" : "0%" }}
           transition={{ duration: 0.62, ease: [0.22, 1, 0.36, 1] }}
         >
           [ Send a Test Project ]
         </motion.span>
         <motion.span
-          className="absolute left-0 top-full text-ink"
+          className="absolute left-0 top-full text-white"
           animate={{ y: hovered ? "-100%" : "0%" }}
           transition={{ duration: 0.62, ease: [0.22, 1, 0.36, 1] }}
         >
-        [ Send a Test Project ]
+          [ Send a Test Project ]
         </motion.span>
       </span>
     </Link>
@@ -145,7 +124,7 @@ export default function Hero() {
             <br />
             You keep the relationship, the credit, and the margin.
           </p>
-          <div className="flex flex-wrap items-center justify-end gap-x-[15px] gap-y-2 pt-[14px] text-[12px] font-medium leading-[14.4px] tracking-[-0.35px] text-[rgb(57,57,57)] max-[760px]:justify-start">
+          <div className="flex flex-wrap items-center justify-end gap-x-[15px] gap-y-2 pt-[14px] text-[14px] font-medium leading-[16.8px] tracking-[-0.35px] text-[rgb(57,57,57)] max-[760px]:justify-start">
             {stats.map((item) => (
               <span key={item}>{item}</span>
             ))}

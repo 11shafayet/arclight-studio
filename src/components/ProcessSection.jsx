@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { ArrowUpRight, CodeXml, MonitorSmartphone, ShieldCheck, Workflow } from "lucide-react";
 
 const steps = [
@@ -43,7 +44,19 @@ function StepCard({ item, index }) {
   const dots = [1, 2, 3, 4, 5];
 
   return (
-    <article className="relative flex min-h-[270px] flex-col overflow-hidden rounded-[10px] bg-white shadow-[0_1px_0_rgba(23,23,23,0.04)] max-[480px]:min-h-[240px]">
+    <motion.article
+      className="relative flex min-h-[270px] flex-col overflow-hidden rounded-[10px] bg-white shadow-[0_1px_0_rgba(23,23,23,0.04)] max-[480px]:min-h-[240px]"
+      initial={{ opacity: 0, y: 72 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.28 }}
+      transition={{
+        type: "spring",
+        stiffness: 340,
+        damping: 34,
+        mass: 0.7,
+        delay: index * 0.12,
+      }}
+    >
       <div className="pointer-events-none absolute inset-x-0 top-0 z-10 h-[10px] bg-[repeating-linear-gradient(90deg,rgba(23,23,23,0.16)_0_1px,transparent_1px_6px)] opacity-100" />
 
       <div className="flex flex-1 flex-col px-[18px] pb-[18px] pt-[30px] max-[480px]:px-4 max-[480px]:pb-4">
@@ -69,7 +82,7 @@ function StepCard({ item, index }) {
           {item.description}
         </p>
       </div>
-    </article>
+    </motion.article>
   );
 }
 

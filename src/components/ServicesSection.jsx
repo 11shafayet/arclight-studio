@@ -27,8 +27,8 @@ const services = [
 
 function ServiceRow({ service }) {
   return (
-    <article className="grid w-full min-h-[150px] grid-cols-[92px_minmax(0,300px)_minmax(0,1fr)] items-center gap-[24px] rounded-[2px] border border-white/50 bg-[#ededed] px-[20px] py-[20px] text-ink shadow-[0_1px_0_rgba(23,23,23,0.04)] max-[1050px]:grid-cols-[86px_minmax(0,1fr)] max-[1050px]:gap-x-6 max-[1050px]:gap-y-4 max-[1050px]:py-[18px] max-[720px]:min-h-0 max-[720px]:grid-cols-[64px_minmax(0,1fr)] max-[720px]:px-[14px] max-[720px]:py-[14px]">
-      <div className="h-[92px] w-[92px] overflow-hidden rounded-[4px] bg-ink/10 max-[720px]:h-[64px] max-[720px]:w-[64px]">
+    <article className="grid w-full min-h-[190px] grid-cols-[130px_minmax(0,300px)_minmax(0,1fr)] items-center gap-[24px] rounded-[2px] border border-white/50 bg-[#ededed] px-[20px] py-[24px] text-ink shadow-[0_1px_0_rgba(23,23,23,0.04)] max-[1050px]:min-h-[178px] max-[1050px]:grid-cols-[112px_minmax(0,1fr)] max-[1050px]:gap-x-6 max-[1050px]:gap-y-4 max-[1050px]:py-[22px] max-[720px]:min-h-0 max-[720px]:grid-cols-[86px_minmax(0,1fr)] max-[720px]:px-[14px] max-[720px]:py-[16px]">
+      <div className="h-[130px] w-[130px] overflow-hidden rounded-[4px] bg-ink/10 max-[1050px]:h-[112px] max-[1050px]:w-[112px] max-[720px]:h-[86px] max-[720px]:w-[86px]">
         <img src={service.image} alt={service.alt} className="h-full w-full object-cover object-center" />
       </div>
 
@@ -50,8 +50,8 @@ export default function ServicesSection() {
       <div className="mx-auto w-[calc(100%-120px)] max-w-[1440px] max-[900px]:w-[calc(100%-48px)] max-[480px]:w-[calc(100%-32px)]">
         <div className="relative flex items-center justify-between border-b border-ink/10 pb-[15px] font-mono text-[14px] font-medium uppercase leading-[16.8px] tracking-[-0.35px] text-ink max-[700px]:grid max-[700px]:gap-2">
           <p>[03]</p>
-          <p className="absolute left-1/2 -translate-x-1/2 max-[700px]:static max-[700px]:translate-x-0">// Services</p>
-          <p>Vision to Victory™</p>
+          <p className="absolute left-1/2 -translate-x-1/2 max-[700px]:static max-[700px]:translate-x-0">[ Services ]</p>
+          <p>What We Do</p>
         </div>
 
         <h2 className="mt-[58px] max-w-[940px] text-[clamp(48px,5.55vw,80px)] font-bold uppercase leading-[0.96] tracking-[-0.055em] text-[rgb(23,23,23)] max-[720px]:mt-10 max-[480px]:text-[40px] max-[480px]:tracking-[-1.9px]">

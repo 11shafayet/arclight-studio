@@ -25,7 +25,7 @@ export default function ProjectsSection() {
       <div className="mx-auto w-[calc(100%-120px)] max-w-[1440px] max-[900px]:w-[calc(100%-48px)] max-[480px]:w-[calc(100%-32px)]">
         <div className="relative flex items-center justify-between border-b border-ink/10 pb-[15px] font-mono text-[14px] font-medium uppercase leading-[16.8px] tracking-[-0.35px] text-ink max-[700px]:grid max-[700px]:gap-2">
           <p>[02]</p>
-          <p className="absolute left-1/2 -translate-x-1/2 max-[700px]:static max-[700px]:translate-x-0">// Creative Development</p>
+          <p className="absolute left-1/2 -translate-x-1/2 max-[700px]:static max-[700px]:translate-x-0">[ Development ]</p>
           <p>Works</p>
         </div>
 
@@ -36,7 +36,7 @@ export default function ProjectsSection() {
             (27)
           </h2>
           <p className="max-w-[390px] justify-self-end pt-[50px] text-left text-[clamp(18px,1.53vw,22px)] font-medium leading-[1.2] tracking-[-0.9px] text-[rgb(23,23,23)] max-[900px]:justify-self-start max-[900px]:pt-0 max-[480px]:text-[18px]">
-            A few live websites I&apos;ve helped build
+            A few live websites we have helped build
             <br />
             across different industries.
           </p>

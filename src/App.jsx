@@ -3,7 +3,7 @@ import ContactSection from "./components/ContactSection.jsx";
 import ContactPage from "./components/ContactPage.jsx";
 import DeliveryProof from "./components/DeliveryProof.jsx";
 import FaqSection from "./components/FaqSection.jsx";
-import Footer from "./components/Footer.jsx";
+// import Footer from "./components/Footer.jsx";
 import Hero from "./components/Hero.jsx";
 import ClientExperienceSection from "./components/ClientExperienceSection.jsx";
 import Navbar from "./components/Navbar.jsx";
@@ -28,7 +28,7 @@ function Home() {
       <ClientExperienceSection />
       <FaqSection />
       <ContactSection />
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 }

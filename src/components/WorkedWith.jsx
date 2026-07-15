@@ -1,11 +1,11 @@
 import { motion } from "framer-motion";
 
 const clients = [
-  "hank-hirth.de",
-  "zeitgeistandco",
-  "mgexecutivecoach",
-  "clickodigital",
-  "innovazione-futura.ag",
+  { label: "hank-hirth.de", href: "https://www.hank-hirth.de/" },
+  { label: "zeitgeistandco", href: "https://zeitgeistandco.com/" },
+  { label: "mgexecutivecoach", href: "https://mgexecutivecoach.com/" },
+  { label: "clickodigital", href: "https://clickodigital.com/" },
+  { label: "innovazione-futura.ag", href: "https://innovazione-futura.ag/" },
 ];
 
 const marqueeItems = [...clients, ...clients, ...clients];
@@ -29,12 +29,15 @@ export default function WorkedWith() {
             }}
           >
             {marqueeItems.map((client, index) => (
-              <span
-                key={`${client}-${index}`}
-                className="shrink-0 whitespace-nowrap text-[24px] font-medium leading-[28.8px] tracking-[-1.15px] text-[rgba(23,23,23,0.32)] max-[900px]:text-[20px]"
+              <a
+                key={`${client.label}-${index}`}
+                href={client.href}
+                target="_blank"
+                rel="noreferrer"
+                className="shrink-0 whitespace-nowrap text-[24px] font-medium leading-[28.8px] tracking-[-1.15px] text-[rgba(23,23,23,0.32)] transition-colors duration-300 hover:text-ink max-[900px]:text-[20px]"
               >
-                {client}
-              </span>
+                {client.label}
+              </a>
             ))}
           </motion.div>
         </div>

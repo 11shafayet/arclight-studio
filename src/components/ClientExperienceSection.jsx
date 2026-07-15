@@ -1,11 +1,11 @@
-const testimonialImage = "https://framerusercontent.com/images/TRY82MyKJIKqjlRfvzwa53tHGsM.png?width=1080&height=1350";
+const testimonialImage = "https://framerusercontent.com/images/II9C8mbhqV90A3fE8pyPChpgk.png?width=660&height=639";
 const avatarImage = "https://framerusercontent.com/images/kMWUaYeEU6aurNKSS8LvmKlqYUM.png?width=1024&height=683";
 
 function SectionHeader() {
   return (
     <div className="relative flex items-center justify-between border-b border-ink/10 pb-[15px] font-mono text-[14px] font-medium uppercase leading-[16.8px] tracking-[-0.35px] text-ink max-[700px]:grid max-[700px]:gap-2">
       <p>[06]</p>
-      <p className="absolute left-1/2 -translate-x-1/2 max-[700px]:static max-[700px]:translate-x-0">//Testimonial</p>
+      <p className="absolute left-1/2 -translate-x-1/2 max-[700px]:static max-[700px]:translate-x-0">[ Testimonial ]</p>
       <p>Our Value</p>
     </div>
   );
@@ -51,19 +51,20 @@ function QuoteCard() {
 
 function TestimonialCard() {
   return (
-    <article className="flex h-full min-h-[520px] flex-col justify-between rounded-[10px] bg-white px-[28px] pb-[28px] pt-[28px] text-ink shadow-[0_1px_0_rgba(23,23,23,0.04)] max-[1100px]:min-h-[380px] max-[480px]:min-h-[340px] max-[480px]:px-5 max-[480px]:py-5">
-      <div>
-        <h3 className="max-w-[320px] text-[clamp(18px,1.45vw,20px)] font-semibold uppercase leading-[1.16] tracking-[-0.04em] text-ink">
-          Strategic partner. Clear thinking. Dependable delivery.
-        </h3>
-        <p className="mt-[206px] max-w-[390px] text-[clamp(15px,1.15vw,18px)] font-medium leading-[1.2] tracking-[-0.55px] text-[rgb(102,102,102)] max-[1200px]:mt-12">
-          Farzana offers a rare strategic partnership. Her work blends authentic brand voice, precise messaging,
-          and emotional appeal. She is someone you can trust for strategic thinking, clarity of outcomes, and
-          dependable delivery.
+    <article className="flex h-full min-h-[640px] flex-col rounded-[10px] bg-white px-[28px] pb-[28px] pt-[28px] text-ink shadow-[0_1px_0_rgba(23,23,23,0.04)] max-[1100px]:min-h-[440px] max-[480px]:min-h-[380px] max-[480px]:px-5 max-[480px]:py-5">
+      <h3 className="max-w-[320px] text-[clamp(18px,1.45vw,20px)] font-semibold uppercase leading-[1.16] tracking-[-0.04em] text-ink">
+        Strategic partner. Clear thinking. Dependable delivery.
+      </h3>
+
+      <div className="flex flex-1 items-center">
+        <p className="max-w-[390px] text-[clamp(15px,1.15vw,18px)] font-medium leading-[1.2] tracking-[-0.55px] text-[rgb(102,102,102)]">
+          Farzana offers a rare strategic partnership. Her work blends authentic brand voice, precise messaging, and
+          emotional appeal. She is someone you can trust for strategic thinking, clarity of outcomes, and dependable
+          delivery.
         </p>
       </div>
 
-      <div className="pt-6">
+      <div>
         <p className="text-[15px] font-medium leading-[18px] tracking-[-0.3px] text-ink">Maria Gusakova</p>
         <p className="mt-[2px] text-[13px] font-medium leading-[16px] tracking-[-0.25px] text-[rgb(69,69,69)]">
           CEO Advisor &amp; Executive Coach | Ex-McKinsey Partner
@@ -75,7 +76,7 @@ function TestimonialCard() {
 
 function ImageCard() {
   return (
-    <article className="relative h-full min-h-[520px] overflow-hidden rounded-[10px] bg-[#dedbd6] shadow-[0_1px_0_rgba(23,23,23,0.04)] max-[1100px]:h-[480px] max-[1100px]:min-h-0 max-[480px]:h-[360px]">
+    <article className="relative h-full min-h-[640px] overflow-hidden rounded-[10px] bg-[#dedbd6] shadow-[0_1px_0_rgba(23,23,23,0.04)] max-[1100px]:h-[520px] max-[1100px]:min-h-0 max-[480px]:h-[380px]">
       <img src={testimonialImage} alt="Farzana portrait" className="h-full w-full object-cover object-center" />
     </article>
   );
@@ -108,7 +109,7 @@ export default function ClientExperienceSection() {
             <TestimonialCard />
           </div>
 
-          <div className="grid h-full min-h-[520px] grid-rows-[132px_minmax(0,1fr)] gap-[8px] max-[1100px]:order-3 max-[1100px]:flex max-[1100px]:min-h-0 max-[1100px]:flex-col">
+          <div className="grid h-full min-h-[640px] grid-rows-[132px_minmax(0,1fr)] gap-[8px] max-[1100px]:order-3 max-[1100px]:flex max-[1100px]:min-h-0 max-[1100px]:flex-col">
             <StatCard />
             <QuoteCard />
           </div>
