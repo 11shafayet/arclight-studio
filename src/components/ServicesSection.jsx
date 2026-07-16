@@ -48,9 +48,9 @@ export default function ServicesSection() {
   return (
     <section id="services" className="relative overflow-visible py-[92px] text-ink max-[900px]:py-16 max-[480px]:py-12">
       <div className="mx-auto w-[calc(100%-120px)] max-w-[1440px] max-[900px]:w-[calc(100%-48px)] max-[480px]:w-[calc(100%-32px)]">
-        <div className="relative flex items-center justify-between border-b border-ink/10 pb-[15px] font-mono text-[14px] font-medium uppercase leading-[16.8px] tracking-[-0.35px] text-ink max-[700px]:grid max-[700px]:gap-2">
+        <div className="relative flex items-center justify-between border-b border-ink/10 pb-[15px] font-mono text-[14px] font-medium uppercase leading-[16.8px] tracking-[-0.35px] text-ink max-[700px]:gap-3 max-[700px]:text-[12px] max-[700px]:leading-[12px]">
           <p>[03]</p>
-          <p className="absolute left-1/2 -translate-x-1/2 max-[700px]:static max-[700px]:translate-x-0">[ Services ]</p>
+          <p className="">[ Services ]</p>
           <p>What We Do</p>
         </div>
 

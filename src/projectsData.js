@@ -8,7 +8,7 @@ export const projects = [
     website: "https://www.hank-hirth.de/",
     year: "2025",
     industry: "Architecture",
-    platform: "Portfolio Site",
+    platform: "WordPress",
     image: "https://framerusercontent.com/images/TRY82MyKJIKqjlRfvzwa53tHGsM.png?width=1080&height=1350",
     alt: "architecture studio website",
     detailImages: [
@@ -143,7 +143,7 @@ export const projects = [
     website: "https://www.dudes-comic-corner.de/",
     year: "2022",
     industry: "Comic Shop / eCommerce",
-    platform: "WordPress / WooCommerce",
+    platform: "WordPress",
     image: "https://framerusercontent.com/images/Z4HTxHR3Y1jeegTsGG104FEFIi0.png?width=1080&height=1350",
     alt: "comic shop",
     detailImages: [

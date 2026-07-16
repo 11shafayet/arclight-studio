@@ -149,12 +149,38 @@ select {
   }
 }
 
+@media (max-width: 700px) {
+  .delivery-heading {
+    order: 1;
+  }
+
+  .delivery-stat-years {
+    order: 2;
+  }
+
+  .delivery-stat-nda {
+    order: 3;
+    align-self: end;
+  }
+
+  .delivery-stat-main {
+    order: 4;
+  }
+}
+
 .hero-headline {
   max-width: 100%;
   overflow: visible;
   font-size: clamp(20px, 5.92vw, 96px);
   line-height: 1.088;
   letter-spacing: -0.047em;
+}
+
+@media (max-width: 760px) {
+  .hero-headline {
+    font-size: 40px;
+    line-height: 0.94;
+  }
 }
 
 .section-pad {

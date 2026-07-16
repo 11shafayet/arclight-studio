@@ -13,19 +13,21 @@ const teamCards = [
     image: "https://framerusercontent.com/images/DbqMeaUhsRQjZwiZ3h7AXbbgc.png?width=1200&height=1200",
     alt: "Farzana Rahman",
     caption: "Farzana Rahman / Founder · Arclight",
+    href: "https://www.linkedin.com/in/farzana-design/",
   },
   {
     image: "https://framerusercontent.com/images/7mL1ZU3BpvO1R8FkZgaLzI8MY.png?width=552&height=753",
     alt: "Shafayetur Rahman",
     caption: "Shafayetur Rahman / Developer· Arclight",
+    href: "https://www.linkedin.com/in/shafayetur-rahman/",
   },
 ];
 
 function PageHeader() {
   return (
-    <div className="relative flex w-full items-center justify-between border-b border-ink/10 pb-[15px] font-mono text-[14px] font-medium uppercase leading-[21px] tracking-[-0.8px] text-ink max-[700px]:grid max-[700px]:gap-2">
+    <div className="relative flex w-full items-center justify-between border-b border-ink/10 pb-[15px] font-mono text-[14px] font-medium uppercase leading-[21px] tracking-[-0.8px] text-ink max-[700px]:gap-3 max-[700px]:text-[12px] max-[700px]:leading-[12px]">
       <p>[ 01 ]</p>
-      <p className="absolute left-1/2 -translate-x-1/2 max-[700px]:static max-[700px]:translate-x-0">// Contact</p>
+      <p className="">[ Contact ]</p>
       <p>Get in touch</p>
     </div>
   );
@@ -88,14 +90,19 @@ function ContactInfo() {
 
 function TeamCard({ card }) {
   return (
-    <div className="flex min-w-0 flex-1 flex-col items-center gap-[10px] overflow-hidden rounded-[8px] max-[809px]:w-full">
+    <a
+      href={card.href}
+      target="_blank"
+      rel="noreferrer"
+      className="group flex min-w-0 flex-1 cursor-pointer flex-col items-center gap-[10px] overflow-hidden rounded-[8px] no-underline max-[809px]:w-full"
+    >
       <div className="relative h-[510px] min-h-[510px] w-full overflow-hidden rounded-[8px] max-[809px]:h-[430px] max-[809px]:min-h-[430px] max-[480px]:h-[330px] max-[480px]:min-h-[330px]">
-        <img src={card.image} alt={card.alt} className="h-full w-full object-cover object-top" />
+        <img src={card.image} alt={card.alt} className="h-full w-full object-cover object-top transition-transform duration-500 ease-out group-hover:scale-[1.03]" />
       </div>
       <p className="w-full text-[18px] font-medium leading-[21.6px] tracking-[-1px] text-ink max-[480px]:text-[16px] max-[480px]:leading-[19.2px]">
         {card.caption}
       </p>
-    </div>
+    </a>
   );
 }
 
@@ -147,7 +154,7 @@ export default function ContactPage() {
   return (
     <>
       <main className="relative z-10 overflow-hidden bg-transparent text-ink">
-        <section className="relative z-[4] flex w-full flex-col items-center gap-[60px] overflow-visible px-8 pb-[180px] pt-[200px] max-[1199px]:pt-[160px] max-[809px]:px-6 max-[809px]:pb-[120px] max-[809px]:pt-[128px] max-[480px]:px-4 max-[480px]:pb-20 max-[480px]:pt-[112px]">
+        <section className="relative z-[4] flex w-full flex-col items-center gap-[60px] overflow-visible px-0 pb-[180px] pt-[200px] max-[1199px]:pt-[160px] max-[809px]:pb-[120px] max-[809px]:pt-[128px] max-[480px]:pb-20 max-[480px]:pt-[112px]">
           <motion.div
             className="pointer-events-none absolute right-[-286px] top-[-214px] z-[-1] h-[604px] w-[604px] bg-[radial-gradient(60%_90.9090909090909%_at_49.6%_52.3%,#ceff71_0%,rgba(10,10,10,0)_100%)] blur-[57px]"
             initial={{ opacity: 0.001 }}
@@ -155,7 +162,7 @@ export default function ContactPage() {
             transition={{ type: "spring", damping: 100, stiffness: 200, mass: 1, delay: 0.3 }}
           />
 
-          <div className="flex w-full max-w-[1380px] flex-col items-start gap-10">
+          <div className="flex w-[calc(100%-120px)] max-w-[1440px] flex-col items-start gap-10 max-[900px]:w-[calc(100%-48px)] max-[480px]:w-[calc(100%-32px)]">
             <PageHeader />
 
             <motion.h1

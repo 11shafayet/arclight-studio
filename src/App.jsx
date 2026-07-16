@@ -1,4 +1,5 @@
 import { Route, Routes } from "react-router-dom";
+import BackToTop from "./components/BackToTop.jsx";
 import ContactSection from "./components/ContactSection.jsx";
 import ContactPage from "./components/ContactPage.jsx";
 import DeliveryProof from "./components/DeliveryProof.jsx";
@@ -43,6 +44,7 @@ export default function App() {
         <Route path="/projects" element={<ProjectsPage />} />
         <Route path="/projects/:slug" element={<ProjectDetail />} />
       </Routes>
+      <BackToTop />
     </div>
   );
 }

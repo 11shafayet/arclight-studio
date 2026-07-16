@@ -41,7 +41,7 @@ export default function ProjectsPage() {
   return (
     <>
       <main className="relative overflow-hidden bg-[#ededed] px-0 py-0 text-ink">
-        <section id="projects" className="relative z-10 px-8 pb-[120px] pt-[200px] max-[1199px]:pt-[180px] max-[809px]:px-6 max-[809px]:pb-20 max-[809px]:pt-[136px] max-[480px]:px-4 max-[480px]:pt-[120px]">
+        <section id="projects" className="relative z-10 px-0 pb-[120px] pt-[200px] max-[1199px]:pt-[180px] max-[809px]:pb-20 max-[809px]:pt-[136px] max-[480px]:pt-[120px]">
           <motion.div
             className="absolute left-[-427px] top-[-152px] z-[-1] h-[640px] w-[634px] bg-[radial-gradient(60%_90.9090909090909%_at_49.6%_52.3%,#59bbd5_0%,rgba(10,10,10,0)_100%)] blur-[57px]"
             initial={{ opacity: 0.001, y: 0 }}
@@ -49,7 +49,7 @@ export default function ProjectsPage() {
             transition={{ type: "spring", damping: 100, stiffness: 200, mass: 1, delay: 0.3 }}
           />
 
-          <div className="mx-auto grid w-full max-w-[1380px] gap-10 max-[809px]:gap-14">
+          <div className="mx-auto grid w-[calc(100%-120px)] max-w-[1440px] gap-10 max-[900px]:w-[calc(100%-48px)] max-[809px]:gap-14 max-[480px]:w-[calc(100%-32px)]">
             <motion.div {...reveal} className="grid grid-cols-7 gap-6 overflow-hidden mix-blend-difference max-[809px]:flex max-[809px]:flex-col max-[809px]:items-start max-[809px]:overflow-visible max-[809px]:!translate-y-0 max-[809px]:!opacity-100">
               <p className="col-span-2 font-mono text-[14px] font-medium uppercase leading-[1.5] tracking-[-0.8px] text-ink">
                 [ Case Studies ]

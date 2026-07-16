@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { ArrowUpRight, Plus } from "lucide-react";
 import { Link, useParams } from "react-router-dom";
-import Footer from "./Footer.jsx";
+// import Footer from "./Footer.jsx";
 import { projects } from "../projectsData.js";
 
 const reveal = {
@@ -10,6 +10,8 @@ const reveal = {
   viewport: { once: true, amount: 0.35 },
   transition: { type: "spring", damping: 20, stiffness: 120, mass: 2 },
 };
+
+const MotionLink = motion(Link);
 
 function ProjectButton({ href }) {
   return (
@@ -54,6 +56,47 @@ function ProjectButton({ href }) {
   );
 }
 
+function ContactButton() {
+  return (
+    <MotionLink
+      to="/contact"
+      whileHover="hover"
+      initial="rest"
+      animate="rest"
+      className="group relative inline-flex h-9 cursor-pointer items-center overflow-visible rounded-full text-[16px] font-medium leading-none tracking-[-0.8px]"
+    >
+      <span className="absolute left-0 top-1/2 z-10 grid h-8 w-8 -translate-y-1/2 place-items-center overflow-hidden rounded-full bg-white text-ink transition-colors duration-500 group-hover:bg-acid">
+        <motion.span variants={{ rest: { rotate: 0 }, hover: { rotate: 45 } }} transition={{ duration: 0.42, ease: [0.22, 1, 0.36, 1] }}>
+          <Plus className="h-[14px] w-[14px]" strokeWidth={2.2} />
+        </motion.span>
+      </span>
+      <span className="relative overflow-hidden rounded-full bg-ink py-[10px] pl-11 pr-4 text-white">
+        <motion.span
+          className="absolute h-[190px] w-[190px] rounded-full bg-white"
+          variants={{
+            rest: { left: 70, top: 41, scale: 0.095 },
+            hover: { left: -16, top: -101, scale: 1 },
+          }}
+          transition={{ duration: 0.62, ease: [0.22, 1, 0.36, 1] }}
+        />
+        <span className="relative z-10 grid h-[18px] overflow-hidden leading-[18px]">
+          <motion.span variants={{ rest: { y: 0, color: "#ffffff" }, hover: { y: "-100%", color: "#171717" } }} transition={{ duration: 0.45, ease: [0.82, 0.08, 0.29, 1] }}>
+            Contact Us
+          </motion.span>
+          <motion.span className="absolute left-0 top-full text-ink" variants={{ rest: { y: 0 }, hover: { y: "-100%" } }} transition={{ duration: 0.45, ease: [0.82, 0.08, 0.29, 1] }}>
+            Contact Us
+          </motion.span>
+        </span>
+      </span>
+      <span className="absolute -right-[11px] -top-[27px] z-20 grid h-[14px] w-[14px] place-items-center text-ink">
+        <motion.span variants={{ rest: { rotate: 30, opacity: 0 }, hover: { rotate: 0, opacity: 1 } }} transition={{ duration: 0.42, ease: [0.22, 1, 0.36, 1] }}>
+          <ArrowUpRight className="h-[14px] w-[14px]" strokeWidth={2.2} />
+        </motion.span>
+      </span>
+    </MotionLink>
+  );
+}
+
 function MetaRow({ label, value }) {
   if (!value) return null;
 
@@ -86,10 +129,10 @@ function DetailImage({ image, index }) {
 
 function HeaderBar({ rollNo = "[02]", title = "[ More Projects ]", right = "Related" }) {
   return (
-    <div className="flex w-full flex-col gap-3 font-mono text-[14px] font-medium uppercase leading-[1.5] tracking-[-0.8px] text-ink">
+    <div className="flex w-full flex-col gap-3 font-mono text-[14px] font-medium uppercase leading-[1.5] tracking-[-0.8px] text-ink max-[700px]:text-[12px] max-[700px]:leading-[12px]">
       <div className="relative flex items-center justify-between">
         <span>{rollNo}</span>
-        <span className="absolute left-1/2 -translate-x-1/2 max-[700px]:static max-[700px]:translate-x-0">{title}</span>
+        <span className="">{title}</span>
         <span>{right}</span>
       </div>
       <div className="h-px w-full bg-ink/10" />
@@ -142,10 +185,10 @@ export default function ProjectDetail() {
 
   return (
     <>
-      <main className="relative overflow-hidden bg-paper px-5 pb-[140px] pt-[300px] text-ink max-[1199px]:pt-[260px] max-[809px]:px-0 max-[809px]:pb-20 max-[809px]:pt-[160px] max-[480px]:pt-[132px]">
-        <section className="relative z-10 px-8 pb-[120px] max-[809px]:px-6 max-[809px]:pb-20 max-[480px]:px-4">
-          <div className="mx-auto flex w-full max-w-[1380px] items-start justify-center gap-[50px] max-[1199px]:flex-col">
-            <aside className="sticky top-[130px] w-[calc(45%-25px)] overflow-hidden py-[30px] max-[1199px]:static max-[1199px]:w-full max-[1199px]:py-0">
+      <main className="relative overflow-visible bg-paper px-0 pb-[140px] pt-[300px] text-ink max-[1199px]:pt-[260px] max-[809px]:pb-20 max-[809px]:pt-[160px] max-[480px]:pt-[132px]">
+        <section className="relative z-10 px-0 pb-[120px] max-[809px]:pb-20">
+          <div className="mx-auto flex w-[calc(100%-120px)] max-w-[1440px] items-start justify-center gap-[50px] max-[1199px]:flex-col max-[900px]:w-[calc(100%-48px)] max-[480px]:w-[calc(100%-32px)]">
+            <aside className="sticky top-[130px] max-h-[calc(100vh-150px)] w-[calc(45%-25px)] overflow-y-auto py-[30px] max-[1199px]:static max-[1199px]:max-h-none max-[1199px]:w-full max-[1199px]:overflow-visible max-[1199px]:py-0">
               <motion.div {...reveal} className="flex flex-col items-end gap-[60px] overflow-hidden max-[1199px]:items-start max-[809px]:!translate-y-0 max-[809px]:!opacity-100 max-[480px]:gap-9">
                 <div className="grid w-full gap-5">
                   <h1 className="max-w-full break-words text-[84px] font-bold uppercase leading-[86px] tracking-[-2.1px] text-ink max-[1199px]:text-[78px] max-[1199px]:leading-[80px] max-[809px]:text-[52px] max-[809px]:leading-[56px] max-[809px]:tracking-[-2.2px] max-[480px]:text-[40px] max-[480px]:leading-[43px]">
@@ -160,7 +203,10 @@ export default function ProjectDetail() {
                 <div className="grid w-full gap-4">
                   <MetaRow label="Year" value={project.year} />
                   <MetaRow label="Industry" value={project.industry} />
-                  <MetaRow label="Category" value={project.platform} />
+                  <MetaRow label="Category" value="WordPress" />
+                  <div className="pt-3">
+                    <ContactButton />
+                  </div>
                 </div>
               </motion.div>
             </aside>
@@ -173,8 +219,8 @@ export default function ProjectDetail() {
           </div>
         </section>
 
-        <section className="relative z-10 px-8 pb-[160px] pt-[100px] max-[809px]:px-6 max-[809px]:py-20 max-[480px]:px-4">
-          <div className="mx-auto grid w-full max-w-[1380px] gap-10">
+        <section className="relative z-10 px-0 pb-[160px] pt-[100px] max-[809px]:py-20">
+          <div className="mx-auto grid w-[calc(100%-120px)] max-w-[1440px] gap-10 max-[900px]:w-[calc(100%-48px)] max-[480px]:w-[calc(100%-32px)]">
             <div className="grid gap-12">
               <HeaderBar />
               <motion.h2
@@ -194,7 +240,7 @@ export default function ProjectDetail() {
           </div>
         </section>
       </main>
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 }
