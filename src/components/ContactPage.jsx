@@ -42,7 +42,7 @@ function ContactField({ label, name, type = "text", placeholder, multiline = fal
       <span className="font-mono text-[16px] font-medium uppercase leading-[1.2] tracking-[-0.5px] text-ink">
         {label}
       </span>
-      <span className="contact-focus-line relative block w-full border-b border-[#dddddd] after:absolute after:bottom-[-1px] after:left-0 after:h-px after:w-full after:origin-left after:scale-x-0 after:bg-emerald-600 after:transition-transform after:duration-500 after:ease-[cubic-bezier(0.22,1,0.36,1)] focus-within:after:scale-x-100">
+      <span className="contact-focus-line relative block w-full border-b border-ink/20 after:absolute after:bottom-[-1px] after:left-0 after:h-px after:w-full after:origin-left after:scale-x-0 after:bg-emerald-600 after:transition-transform after:duration-500 after:ease-[cubic-bezier(0.22,1,0.36,1)] focus-within:after:scale-x-100">
         {multiline ? (
           <textarea name={name} placeholder={placeholder} rows={5} className={`${inputClass} min-h-[154px] resize-none`} />
         ) : (

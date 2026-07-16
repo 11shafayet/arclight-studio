@@ -142,9 +142,9 @@ export default function ContactSection() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="group inline-flex w-[218px] cursor-pointer items-center overflow-hidden border-b border-ink pb-[10px] text-[14px] font-medium leading-[18.2px] tracking-[-0.5px] text-ink disabled:cursor-wait disabled:opacity-70"
+                  className="group inline-flex w-[236px] cursor-pointer items-center overflow-visible border-b border-ink pb-[10px] text-[14px] font-medium leading-[18.2px] tracking-[-0.5px] text-ink disabled:cursor-wait disabled:opacity-70"
                 >
-                  <span className="inline-flex w-full items-center justify-between transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-x-[18px]">
+                  <span className="inline-flex w-full items-center justify-between transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-x-[10px]">
                     <span className="relative grid h-[12px] w-[12px] place-items-center">
                       <span className="h-[8px] w-[8px] rounded-full border border-ink/70 transition-all duration-300 group-hover:scale-50 group-hover:border-emerald-600 group-hover:opacity-0" />
                       <span className="absolute grid h-[20px] w-[20px] place-items-center rounded-full bg-emerald-600 opacity-0 transition-all duration-300 group-hover:translate-x-[1px] group-hover:opacity-100">
