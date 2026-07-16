@@ -84,7 +84,7 @@ function DetailImage({ image, index }) {
   );
 }
 
-function HeaderBar({ rollNo = "[02]", title = "// More Projects", right = "Related" }) {
+function HeaderBar({ rollNo = "[02]", title = "[ More Projects ]", right = "Related" }) {
   return (
     <div className="flex w-full flex-col gap-3 font-mono text-[14px] font-medium uppercase leading-[1.5] tracking-[-0.8px] text-ink">
       <div className="relative flex items-center justify-between">

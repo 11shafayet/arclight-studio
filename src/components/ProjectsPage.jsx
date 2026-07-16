@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import Footer from "./Footer.jsx";
+import FaqSection from "./FaqSection.jsx";
+// import Footer from "./Footer.jsx";
 import { projects } from "../projectsData.js";
 
 const reveal = {
@@ -39,7 +40,7 @@ function CaseProjectCard({ project }) {
 export default function ProjectsPage() {
   return (
     <>
-      <main className="relative overflow-hidden bg-[#ededed] px-5 py-[160px] text-ink max-[809px]:px-0 max-[809px]:py-0">
+      <main className="relative overflow-hidden bg-[#ededed] px-0 py-0 text-ink">
         <section id="projects" className="relative z-10 px-8 pb-[120px] pt-[200px] max-[1199px]:pt-[180px] max-[809px]:px-6 max-[809px]:pb-20 max-[809px]:pt-[136px] max-[480px]:px-4 max-[480px]:pt-[120px]">
           <motion.div
             className="absolute left-[-427px] top-[-152px] z-[-1] h-[640px] w-[634px] bg-[radial-gradient(60%_90.9090909090909%_at_49.6%_52.3%,#59bbd5_0%,rgba(10,10,10,0)_100%)] blur-[57px]"
@@ -51,7 +52,7 @@ export default function ProjectsPage() {
           <div className="mx-auto grid w-full max-w-[1380px] gap-10 max-[809px]:gap-14">
             <motion.div {...reveal} className="grid grid-cols-7 gap-6 overflow-hidden mix-blend-difference max-[809px]:flex max-[809px]:flex-col max-[809px]:items-start max-[809px]:overflow-visible max-[809px]:!translate-y-0 max-[809px]:!opacity-100">
               <p className="col-span-2 font-mono text-[14px] font-medium uppercase leading-[1.5] tracking-[-0.8px] text-ink">
-                // Case Studies
+                [ Case Studies ]
               </p>
               <div className="col-span-5 grid gap-[15px] overflow-hidden">
                 <h1 className="text-[84px] font-bold uppercase leading-[86px] tracking-[-2.1px] text-ink max-[1199px]:text-[78px] max-[1199px]:leading-[80px] max-[809px]:text-[52px] max-[809px]:leading-[56px] max-[809px]:tracking-[-2.2px] max-[480px]:text-[44px] max-[480px]:leading-[48px]">
@@ -74,7 +75,8 @@ export default function ProjectsPage() {
           </div>
         </section>
       </main>
-      <Footer />
+      <FaqSection />
+      {/* <Footer /> */}
     </>
   );
 }

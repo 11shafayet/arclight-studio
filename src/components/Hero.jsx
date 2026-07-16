@@ -97,7 +97,7 @@ function AudienceRotator() {
 export default function Hero() {
   return (
     <section className="relative overflow-visible pb-[60px] text-ink max-[809px]:pb-12">
-      <div className="hero-container relative z-10 mx-auto w-[calc(100%-58px)] max-w-[1440px] pt-[210px] max-[809px]:w-[calc(100%-48px)] max-[809px]:pt-[128px] max-[480px]:w-[calc(100%-32px)] max-[480px]:pt-[112px]">
+      <div className="hero-container relative z-10 mx-auto w-[calc(100%-120px)] max-w-[1440px] pt-[210px] max-[900px]:w-[calc(100%-48px)] max-[809px]:pt-[128px] max-[480px]:w-[calc(100%-32px)] max-[480px]:pt-[112px]">
         <div className="flex items-start justify-between gap-8 text-[clamp(14px,1.25vw,18px)] font-medium leading-[1.2] tracking-[-0.55px] text-[rgb(23,23,23)] max-[700px]:gap-4 max-[700px]:text-[12px] max-[480px]:grid max-[480px]:gap-2">
           <p className="uppercase">WHITE-LABEL WORDPRESS &amp; FRAMER DEVELOPMENT</p>
           <p className="whitespace-nowrap">Working Worldwide</p>

@@ -1,7 +1,8 @@
 import emailjs from "@emailjs/browser";
 import { motion } from "framer-motion";
+import { CornerDownLeft } from "lucide-react";
 import { useState } from "react";
-import Footer from "./Footer.jsx";
+// import Footer from "./Footer.jsx";
 
 const emailServiceId = "service_website";
 const emailTemplateId = "template_f7hkvvi";
@@ -16,7 +17,7 @@ const teamCards = [
   {
     image: "https://framerusercontent.com/images/7mL1ZU3BpvO1R8FkZgaLzI8MY.png?width=552&height=753",
     alt: "Shafayetur Rahman",
-    caption: "Shafayetur Rahman / Developer · Arclight",
+    caption: "Shafayetur Rahman / Developer· Arclight",
   },
 ];
 
@@ -24,25 +25,25 @@ function PageHeader() {
   return (
     <div className="relative flex w-full items-center justify-between border-b border-ink/10 pb-[15px] font-mono text-[14px] font-medium uppercase leading-[21px] tracking-[-0.8px] text-ink max-[700px]:grid max-[700px]:gap-2">
       <p>[ 01 ]</p>
-      <p className="absolute left-1/2 -translate-x-1/2 max-[700px]:static max-[700px]:translate-x-0">[ Contact ]</p>
-      <p>Start a Conversation</p>
+      <p className="absolute left-1/2 -translate-x-1/2 max-[700px]:static max-[700px]:translate-x-0">// Contact</p>
+      <p>Get in touch</p>
     </div>
   );
 }
 
-function ContactField({ label, name, type = "text", multiline = false }) {
+function ContactField({ label, name, type = "text", placeholder, multiline = false }) {
   const inputClass =
-    "w-full border-0 border-b border-[#e0e0e0] bg-transparent px-0 py-3 text-[16px] font-normal leading-[1.3] tracking-[-0.03em] text-ink outline-none placeholder:text-[#666] focus:border-ink";
+    "w-full border-0 border-b border-[#dddddd] bg-transparent px-0 py-[16px] text-[16px] font-normal leading-[1.3] tracking-[-0.03em] text-ink outline-none placeholder:text-[rgb(102,102,102)] focus:border-[#d0d5dd]";
 
   return (
-    <label className="block w-full">
-      <span className="block font-mono text-[16px] font-medium uppercase leading-[1.2] tracking-[-0.5px] text-ink">
+    <label className="flex w-full flex-col items-start gap-[10px]">
+      <span className="font-mono text-[16px] font-medium uppercase leading-[1.2] tracking-[-0.5px] text-ink">
         {label}
       </span>
       {multiline ? (
-        <textarea name={name} placeholder={label} rows={5} required className={`${inputClass} resize-none`} />
+        <textarea name={name} placeholder={placeholder} rows={5} className={`${inputClass} min-h-[154px] resize-none`} />
       ) : (
-        <input name={name} type={type} placeholder={label} required minLength={type === "email" ? undefined : 2} className={inputClass} />
+        <input name={name} type={type} placeholder={placeholder} required minLength={type === "email" ? undefined : 2} className={`${inputClass} min-h-[54px]`} />
       )}
     </label>
   );
@@ -53,25 +54,47 @@ function SubmitButton({ isSubmitting }) {
     <button
       type="submit"
       disabled={isSubmitting}
-      className="group relative mt-1 inline-flex cursor-pointer overflow-hidden rounded-full bg-ink px-5 py-0.5 text-white transition-colors duration-300 hover:bg-soft hover:text-ink disabled:pointer-events-none disabled:opacity-60"
+      className="group inline-flex w-[236px] cursor-pointer items-center overflow-visible border-b border-ink pb-[10px] text-[14px] font-medium leading-[18.2px] tracking-[-0.5px] text-ink disabled:cursor-wait disabled:opacity-70"
     >
-      <span className="pointer-events-none absolute left-[70px] top-[41px] h-[18px] w-[18px] rounded-full bg-acid transition-all duration-500 ease-out group-hover:left-1/2 group-hover:top-1/2 group-hover:h-[190px] group-hover:w-[190px] group-hover:-translate-x-1/2 group-hover:-translate-y-1/2" />
-      <span className="relative z-10 text-[16px] font-medium leading-[2.2em] tracking-[-0.8px]">
-        {isSubmitting ? "Sending" : "Send a Message"}
+      <span className="inline-flex w-full items-center justify-between transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-x-[10px]">
+        <span className="relative grid h-[12px] w-[12px] place-items-center">
+          <span className="h-[8px] w-[8px] rounded-full border border-ink/70 transition-all duration-300 group-hover:scale-50 group-hover:border-emerald-600 group-hover:opacity-0" />
+          <span className="absolute grid h-[20px] w-[20px] place-items-center rounded-full bg-emerald-600 opacity-0 transition-all duration-300 group-hover:translate-x-[1px] group-hover:opacity-100">
+            <CornerDownLeft className="h-[12px] w-[12px] text-white" strokeWidth={2.4} />
+          </span>
+        </span>
+        <span>{isSubmitting ? "Sending" : "Submit"}</span>
       </span>
     </button>
   );
 }
 
+function ContactInfo() {
+  return (
+    <div className="mt-6 flex w-full flex-col items-center overflow-hidden">
+      <div className="flex w-full flex-col items-start gap-3">
+        <h5 className="text-[22px] font-medium leading-[26.4px] tracking-[-1.3px] text-ink">Contact</h5>
+        <a
+          href="mailto:contact@arclightstudio.org"
+          className="break-all text-[18px] font-medium leading-[21.6px] tracking-[-1px] text-ink underline underline-offset-2"
+        >
+          contact@arclightstudio.org
+        </a>
+      </div>
+      <div className="mt-6 h-px w-full bg-ink/10" />
+    </div>
+  );
+}
+
 function TeamCard({ card }) {
   return (
-    <div className="flex min-w-0 flex-1 flex-col overflow-hidden rounded-lg">
-      <img
-        src={card.image}
-        alt={card.alt}
-        className="h-[510px] min-h-[510px] w-full rounded-lg object-cover object-top max-[809px]:h-[360px] max-[809px]:min-h-[360px] max-[480px]:h-[310px] max-[480px]:min-h-[310px]"
-      />
-      <p className="mt-2.5 w-fit font-sans text-[16px] font-medium leading-[1.2] tracking-[-0.5px] text-ink">{card.caption}</p>
+    <div className="flex min-w-0 flex-1 flex-col items-center gap-[10px] overflow-hidden rounded-[8px] max-[809px]:w-full">
+      <div className="relative h-[510px] min-h-[510px] w-full overflow-hidden rounded-[8px] max-[809px]:h-[430px] max-[809px]:min-h-[430px] max-[480px]:h-[330px] max-[480px]:min-h-[330px]">
+        <img src={card.image} alt={card.alt} className="h-full w-full object-cover object-top" />
+      </div>
+      <p className="w-full text-[18px] font-medium leading-[21.6px] tracking-[-1px] text-ink max-[480px]:text-[16px] max-[480px]:leading-[19.2px]">
+        {card.caption}
+      </p>
     </div>
   );
 }
@@ -123,7 +146,7 @@ export default function ContactPage() {
 
   return (
     <>
-      <main className="relative z-10 overflow-hidden bg-white text-ink">
+      <main className="relative z-10 overflow-hidden bg-transparent text-ink">
         <section className="relative z-[4] flex w-full flex-col items-center gap-[60px] overflow-visible px-8 pb-[180px] pt-[200px] max-[1199px]:pt-[160px] max-[809px]:px-6 max-[809px]:pb-[120px] max-[809px]:pt-[128px] max-[480px]:px-4 max-[480px]:pb-20 max-[480px]:pt-[112px]">
           <motion.div
             className="pointer-events-none absolute right-[-286px] top-[-214px] z-[-1] h-[604px] w-[604px] bg-[radial-gradient(60%_90.9090909090909%_at_49.6%_52.3%,#ceff71_0%,rgba(10,10,10,0)_100%)] blur-[57px]"
@@ -136,62 +159,56 @@ export default function ContactPage() {
             <PageHeader />
 
             <motion.h1
-              className="w-full text-[clamp(58px,7.3vw,112px)] font-bold uppercase leading-[0.9] tracking-[-0.045em] text-ink max-[809px]:!translate-y-0 max-[809px]:!opacity-100 max-[480px]:text-[48px]"
+              className="w-full text-[clamp(56px,12.08vw,174px)] font-bold uppercase leading-none tracking-[-0.046em] text-ink max-[1199px]:text-[122px] max-[809px]:text-[56px] max-[809px]:tracking-[-4.2px]"
+              initial={{ opacity: 0.001, scale: 1.4 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ type: "spring", bounce: 0.2, duration: 1 }}
+            >
+              Contact Us.
+            </motion.h1>
+
+            <motion.div
+              className="flex w-full items-center justify-center gap-16 max-[809px]:flex-col max-[809px]:items-stretch max-[809px]:gap-10"
               initial={{ opacity: 0, y: 48 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.35 }}
               transition={{ type: "spring", damping: 20, stiffness: 120, mass: 2 }}
             >
-              Contact Us.
-            </motion.h1>
-
-            <div className="flex w-full items-center justify-center gap-16 max-[809px]:mt-4 max-[809px]:flex-col max-[809px]:items-stretch max-[809px]:gap-8">
-              <aside className="flex min-w-0 flex-1 self-stretch overflow-clip pt-10 max-[1199px]:pt-5 max-[809px]:order-1 max-[809px]:w-full">
-                <div className="sticky top-[50px] flex w-full flex-col items-start gap-4 pb-[30px] max-[809px]:relative max-[809px]:top-auto">
-                  <h2 className="w-full text-[clamp(38px,4.4vw,64px)] font-bold uppercase leading-[0.94] tracking-[-0.045em] text-ink max-[480px]:text-[34px]">
+              <aside className="flex min-w-0 flex-1 self-stretch overflow-hidden pt-10 max-[809px]:w-full max-[809px]:pt-0">
+                <div className="sticky top-[50px] flex w-full flex-col items-start gap-4 pb-[30px] max-[809px]:static">
+                  <h2 className="w-full text-[22px] font-medium leading-[26.4px] tracking-[-1.3px] text-ink">
                     Have an approved design ready for development?
                   </h2>
-                  <p className="max-w-[370px] text-[18px] font-medium leading-[1.2] tracking-[-0.8px] text-ink">
-                    Send the design, page list, scope, assets, and timeline. We&apos;ll reply with how we&apos;d handle the build.
+                  <p className="max-w-[370px] text-[18px] font-medium leading-[24px] tracking-[-0.1px] text-[rgba(16,16,16,0.6)]">
+                    Send it over. We&apos;ll reply with how we&apos;d handle the build , scope, timeline, and price.
                   </p>
-
-                  <div className="mt-2 flex w-full flex-col items-center overflow-hidden pt-6">
-                    <div className="flex w-full flex-col items-start gap-3">
-                      <h5 className="text-[22px] font-semibold leading-[1.1] tracking-[-0.8px] text-ink">Contact</h5>
-                      <a
-                        href="mailto:contact@arclightstudio.org"
-                        className="break-all text-[18px] font-medium leading-[1.2] tracking-[-0.5px] text-ink underline underline-offset-2"
-                      >
-                        contact@arclightstudio.org
-                      </a>
-                    </div>
-                    <div className="mt-6 h-px w-full bg-ink/10" />
-                  </div>
                 </div>
               </aside>
 
-              <form className="flex w-[60%] flex-col items-start gap-10 overflow-hidden max-[809px]:order-0 max-[809px]:w-full" onSubmit={handleSubmit}>
-                <div className="flex w-full flex-col gap-10">
-                  <ContactField label="Name" name="name" />
-                  <ContactField label="E-mail" name="email" type="email" />
-                  <ContactField label="Project Details" name="message" multiline />
-                </div>
+              <div id="contact-form" className="flex w-[60%] flex-col items-center gap-0 overflow-hidden max-[809px]:w-full">
+                <form className="flex w-full flex-col items-start gap-10" onSubmit={handleSubmit}>
+                  <ContactField label="Name" name="name" placeholder="Your Name" />
+                  <ContactField label="Email" name="email" type="email" placeholder="you@example.com" />
+                  <ContactField label="Project Details" name="message" placeholder="Project Details" multiline />
 
-                <SubmitButton isSubmitting={isSubmitting} />
+                  <SubmitButton isSubmitting={isSubmitting} />
 
-                <p
-                  className={`text-[14px] font-medium leading-[18.2px] tracking-[-0.5px] ${
-                    statusType === "success" ? "text-emerald-700" : "text-ink/70"
-                  }`}
-                  role="status"
-                  aria-live="polite"
-                >
-                  {status || "Our team replies within 24 hours"}
-                </p>
-              </form>
-            </div>
+                  <p
+                    className={`text-[14px] font-medium leading-[18.2px] tracking-[-0.5px] ${
+                      statusType === "success" ? "text-emerald-700" : "text-ink/70"
+                    }`}
+                    role="status"
+                    aria-live="polite"
+                  >
+                    {status || "Our team replies within 24 hours"}
+                  </p>
+                </form>
 
-            <div className="flex w-full items-center justify-center gap-2.5 overflow-clip max-[1199px]:flex-col">
+                <ContactInfo />
+              </div>
+            </motion.div>
+
+            <div id="contact-team" className="flex w-full items-center justify-center gap-[10px] overflow-hidden max-[1199px]:flex-col">
               {teamCards.map((card) => (
                 <TeamCard key={card.caption} card={card} />
               ))}
@@ -199,7 +216,7 @@ export default function ContactPage() {
           </div>
         </section>
       </main>
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 }

@@ -155,7 +155,7 @@ export default function Navbar() {
 
   return (
     <motion.header className="absolute inset-x-0 top-0 z-50 text-ink">
-      <nav className="relative mx-auto flex h-28 w-[calc(100%-58px)] max-w-[1440px] items-center justify-between gap-6 max-[809px]:h-[88px] max-[809px]:w-[calc(100%-48px)]">
+      <nav className="relative mx-auto flex h-28 w-[calc(100%-120px)] max-w-[1440px] items-center justify-between gap-6 max-[900px]:w-[calc(100%-48px)] max-[809px]:h-[88px] max-[480px]:w-[calc(100%-32px)]">
         <Link to="/" className="font-logo origin-left scale-x-[0.84] text-[32px] font-normal uppercase leading-none tracking-[-1px] text-ink">
           arclight
         </Link>
