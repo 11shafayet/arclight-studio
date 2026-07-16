@@ -27,17 +27,17 @@ const services = [
 
 function ServiceRow({ service }) {
   return (
-    <article className="grid w-full min-h-[190px] grid-cols-[130px_minmax(0,300px)_minmax(0,1fr)] items-center gap-[24px] rounded-[2px] border border-white/50 bg-[#ededed] px-[20px] py-[24px] text-ink shadow-[0_1px_0_rgba(23,23,23,0.04)] max-[1050px]:min-h-[178px] max-[1050px]:grid-cols-[112px_minmax(0,1fr)] max-[1050px]:gap-x-6 max-[1050px]:gap-y-4 max-[1050px]:py-[22px] max-[720px]:min-h-0 max-[720px]:grid-cols-[86px_minmax(0,1fr)] max-[720px]:px-[14px] max-[720px]:py-[16px]">
-      <div className="h-[130px] w-[130px] overflow-hidden rounded-[4px] bg-ink/10 max-[1050px]:h-[112px] max-[1050px]:w-[112px] max-[720px]:h-[86px] max-[720px]:w-[86px]">
+    <article className="grid w-full min-h-[190px] grid-cols-[130px_minmax(0,300px)_minmax(0,1fr)] items-center gap-[24px] rounded-[2px] border border-white/50 bg-[#ededed] px-[20px] py-[24px] text-ink shadow-[0_1px_0_rgba(23,23,23,0.04)] max-[1050px]:min-h-[178px] max-[1050px]:grid-cols-[112px_minmax(0,1fr)] max-[1050px]:gap-x-6 max-[1050px]:gap-y-4 max-[1050px]:py-[22px] max-[720px]:flex max-[720px]:min-h-0 max-[720px]:flex-col max-[720px]:items-stretch max-[720px]:gap-[18px] max-[720px]:px-[14px] max-[720px]:py-[14px]">
+      <div className="h-[130px] w-[130px] overflow-hidden rounded-[4px] bg-ink/10 max-[1050px]:h-[112px] max-[1050px]:w-[112px] max-[720px]:h-[138px] max-[720px]:w-full">
         <img src={service.image} alt={service.alt} className="h-full w-full object-cover object-center" />
       </div>
 
-      <div className="flex items-start gap-[22px] text-[24px] font-medium leading-[30px] tracking-[-1px] text-ink max-[720px]:gap-4 max-[720px]:text-[18px] max-[720px]:leading-[22px]">
-        <span className="min-w-[36px] text-[28px] font-semibold leading-[40px] tracking-[-1px]">{service.number}</span>
-        <h3 className="min-w-0">{service.title}</h3>
+      <div className="flex items-baseline gap-[22px] text-[24px] font-medium leading-[30px] tracking-[-1px] text-ink max-[720px]:gap-4 max-[720px]:text-[22px] max-[720px]:leading-[26px]">
+        <span className="min-w-[36px] text-[28px] font-semibold leading-[30px] tracking-[-1px] max-[720px]:text-[24px] max-[720px]:leading-[26px]">{service.number}</span>
+        <h3 className="min-w-0 leading-[30px] max-[720px]:leading-[26px]">{service.title}</h3>
       </div>
 
-      <p className="max-w-[640px] justify-self-end text-[24px] font-medium leading-[30px] tracking-[-1px] text-ink max-[1050px]:col-start-2 max-[1050px]:justify-self-start max-[720px]:col-span-2 max-[720px]:col-start-1 max-[720px]:text-[17px] max-[720px]:leading-[21px]">
+      <p className="max-w-[640px] justify-self-end text-[24px] font-medium leading-[30px] tracking-[-1px] text-ink max-[1050px]:col-start-2 max-[1050px]:justify-self-start max-[720px]:max-w-none max-[720px]:text-[17px] max-[720px]:leading-[21px]">
         {service.description}
       </p>
     </article>
@@ -66,7 +66,7 @@ export default function ServicesSection() {
           {services.map((service, index) => (
             <div
               key={service.number}
-              className="sticky max-[720px]:static"
+              className="sticky"
               style={{ top: `calc(92px + ${index * 18}px)` }}
             >
               <ServiceRow service={service} />

@@ -18,13 +18,24 @@ function SectionHeader() {
 
 function FormInput({ label, name, type = "text", multiline = false }) {
   const sharedClass =
-    "w-full border-0 border-b border-ink/10 bg-transparent px-0 py-[18px] text-[18px] font-medium leading-[24px] tracking-[-0.1px] text-ink outline-none placeholder:text-[rgb(102,102,102)] focus:border-ink/35";
+    "w-full border-0 bg-transparent px-0 py-[18px] text-[18px] font-medium leading-[24px] tracking-[-0.1px] text-ink outline-none placeholder:text-[rgb(102,102,102)]";
+
+  const fieldClass =
+    "contact-focus-line relative block border-b border-ink/10 after:absolute after:bottom-[-1px] after:left-0 after:h-px after:w-full after:origin-left after:scale-x-0 after:bg-emerald-600 after:transition-transform after:duration-500 after:ease-[cubic-bezier(0.22,1,0.36,1)] focus-within:after:scale-x-100";
 
   if (multiline) {
-    return <textarea name={name} placeholder={label} rows={3} required className={`${sharedClass} resize-none`} />;
+    return (
+      <label className={fieldClass}>
+        <textarea name={name} placeholder={label} rows={3} required className={`${sharedClass} resize-none`} />
+      </label>
+    );
   }
 
-  return <input name={name} type={type} placeholder={label} required minLength={type === "email" ? undefined : 2} className={sharedClass} />;
+  return (
+    <label className={fieldClass}>
+      <input name={name} type={type} placeholder={label} required minLength={type === "email" ? undefined : 2} className={sharedClass} />
+    </label>
+  );
 }
 
 export default function ContactSection() {

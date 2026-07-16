@@ -35,18 +35,20 @@ function PageHeader() {
 
 function ContactField({ label, name, type = "text", placeholder, multiline = false }) {
   const inputClass =
-    "w-full border-0 border-b border-[#dddddd] bg-transparent px-0 py-[16px] text-[16px] font-normal leading-[1.3] tracking-[-0.03em] text-ink outline-none placeholder:text-[rgb(102,102,102)] focus:border-[#d0d5dd]";
+    "w-full border-0 bg-transparent px-0 py-[16px] text-[16px] font-normal leading-[1.3] tracking-[-0.03em] text-ink outline-none placeholder:text-[rgb(102,102,102)]";
 
   return (
     <label className="flex w-full flex-col items-start gap-[10px]">
       <span className="font-mono text-[16px] font-medium uppercase leading-[1.2] tracking-[-0.5px] text-ink">
         {label}
       </span>
-      {multiline ? (
-        <textarea name={name} placeholder={placeholder} rows={5} className={`${inputClass} min-h-[154px] resize-none`} />
-      ) : (
-        <input name={name} type={type} placeholder={placeholder} required minLength={type === "email" ? undefined : 2} className={`${inputClass} min-h-[54px]`} />
-      )}
+      <span className="contact-focus-line relative block w-full border-b border-[#dddddd] after:absolute after:bottom-[-1px] after:left-0 after:h-px after:w-full after:origin-left after:scale-x-0 after:bg-emerald-600 after:transition-transform after:duration-500 after:ease-[cubic-bezier(0.22,1,0.36,1)] focus-within:after:scale-x-100">
+        {multiline ? (
+          <textarea name={name} placeholder={placeholder} rows={5} className={`${inputClass} min-h-[154px] resize-none`} />
+        ) : (
+          <input name={name} type={type} placeholder={placeholder} required minLength={type === "email" ? undefined : 2} className={`${inputClass} min-h-[54px]`} />
+        )}
+      </span>
     </label>
   );
 }

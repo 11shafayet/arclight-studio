@@ -1,12 +1,19 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { Menu, Plus, X } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 const navItems = [
   { label: "Home", number: "01", to: "/" },
   { label: "Projects", number: "02", to: "/projects" },
   { label: "Contact", number: "03", to: "/contact" },
+];
+
+const mobileSocialLinks = [
+  { label: "Linkedin", href: "https://www.linkedin.com/in/farzana-design/" },
+  { label: "Instagram", href: "https://www.instagram.com/arclightstudio/" },
+  { label: "Email", href: "mailto:contact@arclightstudio.org" },
+  { label: "Dribbble", href: "https://dribbble.com/arclightstudio" },
 ];
 
 const MotionLink = motion(Link);
@@ -153,6 +160,17 @@ function NavCta() {
 export default function Navbar() {
   const [open, setOpen] = useState(false);
 
+  useEffect(() => {
+    if (!open) return undefined;
+
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+    };
+  }, [open]);
+
   return (
     <motion.header className="absolute inset-x-0 top-0 z-50 text-ink">
       <nav className="relative mx-auto flex h-28 w-[calc(100%-120px)] max-w-[1440px] items-center justify-between gap-6 max-[900px]:w-[calc(100%-48px)] max-[809px]:h-[88px] max-[480px]:w-[calc(100%-32px)]">
@@ -178,7 +196,7 @@ export default function Navbar() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 bg-paper px-6 py-7 text-ink min-[810px]:hidden"
+            className="fixed inset-0 z-50 flex h-dvh flex-col overflow-hidden bg-paper px-6 py-7 text-ink min-[810px]:hidden"
           >
             <div className="flex items-center justify-between">
               <span className="font-logo origin-left scale-x-[0.84] text-[32px] uppercase leading-none tracking-[-1px]">arclight</span>
@@ -186,16 +204,30 @@ export default function Navbar() {
                 <X className="h-5 w-5" />
               </button>
             </div>
-            <motion.div initial="hidden" animate="show" variants={{ show: { transition: { staggerChildren: 0.08 } } }} className="mt-20 grid gap-5">
+            <motion.div initial="hidden" animate="show" variants={{ show: { transition: { staggerChildren: 0.08 } } }} className="mt-16 grid gap-4">
               {navItems.map((item) => (
                 <motion.div key={item.to} variants={{ hidden: { opacity: 0, y: 16 }, show: { opacity: 1, y: 0 } }}>
-                  <Link to={item.to} onClick={() => setOpen(false)} className="relative inline-flex text-5xl font-black">
+                  <Link to={item.to} onClick={() => setOpen(false)} className="relative inline-flex text-[38px] font-black leading-[0.95] tracking-[-1.8px]">
                     {item.label}
-                    <span className="absolute -right-8 -top-2 text-sm text-ink/45">{item.number}</span>
+                    <span className="absolute -right-7 -top-1 font-mono text-[12px] font-medium leading-none tracking-[-0.2px] text-ink/45">{item.number}</span>
                   </Link>
                 </motion.div>
               ))}
             </motion.div>
+            <nav className="mt-auto grid grid-cols-2 gap-x-8 gap-y-4 border-t border-ink/10 pt-6 font-mono text-[13px] font-medium uppercase leading-[15.6px] tracking-[-0.35px] text-ink">
+              {mobileSocialLinks.map((item) => (
+                <a
+                  key={item.label}
+                  href={item.href}
+                  onClick={() => setOpen(false)}
+                  target={item.href.startsWith("http") ? "_blank" : undefined}
+                  rel={item.href.startsWith("http") ? "noreferrer" : undefined}
+                  className="w-fit"
+                >
+                  {item.label}
+                </a>
+              ))}
+            </nav>
           </motion.div>
         )}
       </AnimatePresence>

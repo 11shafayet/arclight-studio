@@ -58,7 +58,7 @@ export default function PricingSection() {
       <div className="mx-auto w-[calc(100%-120px)] max-w-[1440px] max-[900px]:w-[calc(100%-48px)] max-[480px]:w-[calc(100%-32px)]">
         <div className="flex flex-col items-center text-center">
           <p className="font-mono text-[14px] font-medium uppercase leading-[21px] tracking-[-0.8px] text-ink">[04]</p>
-          <p className="mt-[28px] font-mono text-[14px] font-medium uppercase leading-[21px] tracking-[-0.8px] text-ink">Pricing</p>
+          <p className="mt-[28px] font-mono text-[14px] font-medium uppercase leading-[21px] tracking-[-0.8px] text-ink max-[480px]:mt-[10px]">Pricing</p>
           <h2 className="mt-[20px] text-[48px] font-bold uppercase leading-[56px] tracking-[-2px] text-ink max-[480px]:text-[34px] max-[480px]:leading-[38px] max-[480px]:tracking-[-1.4px]">
             Start with One Page.
           </h2>

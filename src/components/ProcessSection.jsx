@@ -45,7 +45,7 @@ function StepCard({ item, index }) {
 
   return (
     <motion.article
-      className="relative flex min-h-[270px] flex-col overflow-hidden rounded-[10px] bg-white shadow-[0_1px_0_rgba(23,23,23,0.04)] max-[480px]:min-h-[240px]"
+      className="relative flex h-full min-h-[270px] flex-col overflow-hidden rounded-[10px] bg-white shadow-[0_1px_0_rgba(23,23,23,0.04)] max-[760px]:min-h-[260px] max-[480px]:min-h-[240px]"
       initial={{ opacity: 0, y: 72 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.28 }}
@@ -60,7 +60,7 @@ function StepCard({ item, index }) {
       <div className="pointer-events-none absolute inset-x-0 top-0 z-10 h-[10px] bg-[repeating-linear-gradient(90deg,rgba(23,23,23,0.16)_0_1px,transparent_1px_6px)] opacity-100" />
 
       <div className="flex flex-1 flex-col px-[18px] pb-[18px] pt-[30px] max-[480px]:px-4 max-[480px]:pb-4">
-        <div className="mb-[48px] flex items-center justify-between max-[480px]:mb-8">
+        <div className="mb-[34px] flex items-center justify-between max-[480px]:mb-6">
           <div className="flex items-center gap-[3px]">
             {dots.map((dot) => (
               <span
@@ -88,7 +88,7 @@ function StepCard({ item, index }) {
 
 export default function ProcessSection() {
   return (
-    <section id="process" className="relative overflow-hidden py-[100px] text-ink max-[900px]:py-16 max-[480px]:py-12">
+    <section id="process" className="relative overflow-visible py-[100px] text-ink max-[900px]:py-16 max-[480px]:py-12">
       <div
         className="pointer-events-none absolute left-[-420px] top-[-150px] h-[640px] w-[640px] rounded-full blur-[57px]"
         style={{
@@ -113,9 +113,15 @@ export default function ProcessSection() {
           </p>
         </div>
 
-        <div className="mt-[42px] grid grid-cols-5 gap-[8px] max-[1200px]:grid-cols-2 max-[760px]:grid-cols-1 max-[480px]:mt-8">
+        <div className="mt-[42px] grid grid-cols-5 gap-[8px] max-[1200px]:grid-cols-2 max-[760px]:block max-[480px]:mt-8">
           {steps.map((item, index) => (
-            <StepCard key={item.step} item={item} index={index} />
+            <div
+              key={item.step}
+              className="h-full max-[760px]:sticky max-[760px]:mb-[16px] max-[760px]:h-auto"
+              style={{ top: `calc(82px + ${index * 16}px)` }}
+            >
+              <StepCard item={item} index={index} />
+            </div>
           ))}
         </div>
       </div>

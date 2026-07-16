@@ -1,4 +1,5 @@
 import { Route, Routes } from "react-router-dom";
+import AppPreloader from "./components/AppPreloader.jsx";
 import BackToTop from "./components/BackToTop.jsx";
 import ContactSection from "./components/ContactSection.jsx";
 import ContactPage from "./components/ContactPage.jsx";
@@ -37,13 +38,16 @@ function Home() {
 export default function App() {
   return (
     <div className="site-surface min-h-screen bg-paper">
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/contact" element={<ContactPage />} />
-        <Route path="/projects" element={<ProjectsPage />} />
-        <Route path="/projects/:slug" element={<ProjectDetail />} />
-      </Routes>
+      <AppPreloader />
+      <div className="app-reveal">
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/contact" element={<ContactPage />} />
+          <Route path="/projects" element={<ProjectsPage />} />
+          <Route path="/projects/:slug" element={<ProjectDetail />} />
+        </Routes>
+      </div>
       <BackToTop />
     </div>
   );
