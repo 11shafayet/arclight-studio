@@ -33,7 +33,7 @@ export default function ProjectsSection() {
           <h2 className="text-[clamp(48px,6.53vw,94px)] font-bold uppercase leading-[1] tracking-[-0.045em] text-[rgb(23,23,23)] max-[480px]:text-[42px]">
             Projects
             <br />
-            (27)
+            (6)
           </h2>
           <p className="max-w-[390px] justify-self-end pt-[50px] text-left text-[clamp(18px,1.53vw,22px)] font-medium leading-[1.2] tracking-[-0.9px] text-[rgb(23,23,23)] max-[900px]:justify-self-start max-[900px]:pt-0 max-[480px]:text-[18px]">
             A few live websites we have helped build

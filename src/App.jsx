@@ -1,4 +1,5 @@
 import { Route, Routes } from "react-router-dom";
+import AnalyticsTracker from "./components/AnalyticsTracker.jsx";
 import AppPreloader from "./components/AppPreloader.jsx";
 import BackToTop from "./components/BackToTop.jsx";
 import ContactSection from "./components/ContactSection.jsx";
@@ -38,6 +39,7 @@ function Home() {
 export default function App() {
   return (
     <div className="site-surface min-h-screen bg-paper">
+      <AnalyticsTracker />
       <AppPreloader />
       <div className="app-reveal">
         <Navbar />
